@@ -13,8 +13,6 @@ namespace MiningTycoon
 
             // Bump the velocity.
             velocityMultiplier = 0.02f * data.damageMultiplier;
-
-            Debug.Log($"PICKAXE: {data?.id}");
         }
 
         /// <summary>
@@ -43,7 +41,7 @@ namespace MiningTycoon
         protected override bool ShouldDeformTarget(Collision collision, Collider target)
         {
             OreVein vein = collision.collider.GetComponentInParent<OreVein>();
-            return base.ShouldDeformTarget(collision, target) && vein != null && vein.data.CanMine(data.tier);
+            return base.ShouldDeformTarget(collision, target) && vein != null && vein.data.CanBeMinedBy(data.tier);
         }
     }
 }

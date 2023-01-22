@@ -62,8 +62,6 @@ namespace MiningTycoon
         {
             // Create a reference copy.
             data = (VeinItem)(Entry.ItemDatabase[id]).Copy();
-
-            Debug.Log($"VEIN LOADED: {data?.id}");
         }
     }
 }

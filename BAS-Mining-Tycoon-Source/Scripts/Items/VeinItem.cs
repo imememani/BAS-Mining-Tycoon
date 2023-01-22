@@ -7,12 +7,12 @@
         /// <summary>
         /// Can this item mine the target tier?
         /// </summary>
-        public bool CanMine(Tier otherTier)
+        public bool CanBeMinedBy(Tier otherTier)
         {
             int a = (int)otherTier;
             int b = (int)tier;
 
-            return a <= b;
+            return b <= a;
         }
 
         public override Item Copy()

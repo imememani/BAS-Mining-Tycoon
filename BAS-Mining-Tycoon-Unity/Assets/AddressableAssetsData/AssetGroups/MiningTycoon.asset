@@ -72,6 +72,51 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
+  - m_GUID: 6d2873610c8c28f4791dde30424566d2
+    m_Address: Tycoon.Icon.Pickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: f8500cce2feca1c46adb8ddca4c98326
+    m_Address: Tycoon.Pickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: b51d05621a3a1e44d958facd2593a330
+    m_Address: Tycoon.Icon.CopperPickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: e09718a60c6dc3c46976c25391785682
+    m_Address: Tycoon.CopperPickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 7be73ca5794e65d408cd5ee9f1e1a4a2
+    m_Address: Tycoon.IronPickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 7522bf61ee4e633408afc50f476da0a5
+    m_Address: Tycoon.RubyPickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 196dccd01aa7e6547a410bdb3b6290d3
+    m_Address: Tycoon.Icon.RubyPickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: fe77c93b82e4426459e0f1d71ff4b515
+    m_Address: Tycoon.Icon.GoldPickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: dca94c9efc5b6dd4a98a070ccf2bfe6b
+    m_Address: Tycoon.GoldPickaxe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b14c4d9d8b63f3247be008fe8b53d3ae, type: 2}
   m_SchemaSet:

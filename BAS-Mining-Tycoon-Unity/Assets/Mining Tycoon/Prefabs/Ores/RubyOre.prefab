@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 237193752445514641, guid: 5f3995fd3b03e2e4b8f0cd8b4034b523,
+        type: 3}
+      propertyPath: itemId
+      value: RubyOre
+      objectReference: {fileID: 0}
     - target: {fileID: 4643215268016906557, guid: 5f3995fd3b03e2e4b8f0cd8b4034b523,
         type: 3}
       propertyPath: m_RootOrder
