@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 3d93e85a7aea161469982cb8bd52c24f
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 90136ae3f46aafc4998929a98fcc061a
+    m_Address: BAS.Level_MiningTycoon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b14c4d9d8b63f3247be008fe8b53d3ae, type: 2}
   m_SchemaSet:

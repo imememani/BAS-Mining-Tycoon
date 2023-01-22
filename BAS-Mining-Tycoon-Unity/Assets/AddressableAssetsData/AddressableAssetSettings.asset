@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DefaultGroup: 3d93e85a7aea161469982cb8bd52c24f
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -26,8 +26,8 @@ MonoBehaviour:
   m_ContiguousBundles: 0
   m_StripUnityVersionFromBundleBuild: 1
   m_DisableVisibleSubAssetRepresentations: 0
-  m_ShaderBundleNaming: 0
-  m_ShaderBundleCustomNaming: bas
+  m_ShaderBundleNaming: 2
+  m_ShaderBundleCustomNaming: Mining Tycoon
   m_MonoScriptBundleNaming: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
@@ -36,7 +36,7 @@ MonoBehaviour:
     m_Id: f0d6e0cdd8192a84f819089abb779b64
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 2
-  m_overridePlayerVersion: bas
+  m_overridePlayerVersion: Mining Tycoon
   m_GroupAssets:
   - {fileID: 11400000, guid: fbe88945f5fd22549a3b2283780ee7c2, type: 2}
   - {fileID: 11400000, guid: c7693ad59ef250341800b9d966602e73, type: 2}
@@ -58,7 +58,7 @@ MonoBehaviour:
       - m_Id: ce15733c007f6d84a9cd434894e23ab1
         m_Value: '[ThunderRoad.AssetBundleBuilder.assetsLocalPath]'
       - m_Id: f0d6e0cdd8192a84f819089abb779b64
-        m_Value: '{ThunderRoad.FileManager.aaDefaultPath}'
+        m_Value: '{ThunderRoad.FileManager.aaModPath}/Mining Tycoon'
       - m_Id: d8fad135d0762f943a80ca7860c8e9fc
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]'
       - m_Id: 3868748ffde3b334bbd8b7acf4ed429e
