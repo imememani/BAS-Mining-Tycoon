@@ -15,6 +15,7 @@ namespace MiningTycoon
         private Transform spawnPoint;
 
         private string currentCategory;
+        private Text currentCategoryText;
 
         private readonly Dictionary<string, List<Item>> categories = new Dictionary<string, List<Item>>();
 
@@ -121,8 +122,21 @@ namespace MiningTycoon
                     go.transform.localRotation = Quaternion.identity;
                     go.transform.localScale = Vector3.one;
 
-                    go.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = key.Key;
-                    go.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => DisplayCategory(key.Key));
+                    Text text = go.transform.GetChild(0).GetChild(0).GetComponent<Text>();
+                    text.text = key.Key;
+
+                    if (currentCategory == key.Key)
+                    { text.color = Color.green; }
+
+                    go.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() =>
+                    {
+                        if (currentCategory != null) currentCategoryText.color = Color.white;
+
+                        currentCategoryText = text;
+                        text.color = Color.green;
+
+                        DisplayCategory(key.Key);
+                    });
 
                     go.name = key.Key;
                 }, "Shop->Category");
