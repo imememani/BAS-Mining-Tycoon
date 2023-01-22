@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using ThunderRoad;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace MiningTycoon
 {
@@ -37,6 +39,9 @@ namespace MiningTycoon
             References = level.customReferences;
             LoadItems();
 
+            // Add the shop UI.
+            level.customReferences[level.customReferences.Count - 1].transforms[0].gameObject.AddComponent<TycoonShop>();
+
             // Generate ore.
             OreGenerator.GenerateOreVeins();
 
@@ -57,6 +62,36 @@ namespace MiningTycoon
             Debug.Log($"Spawning '{id}' @ '{item.address}'");
 
             Catalog.InstantiateAsync(item.address, position, rotation, null, go => onItemSpawned?.Invoke(go), "Tycoon->Spawn");
+        }
+
+        /// <summary>
+        /// Spawn an object.
+        /// </summary>
+        public static void SpawnObject<T>(string address, bool spawn = true, Action<T> onSpawned = null) where T : UnityEngine.Object
+        {
+            GameManager.local.StartCoroutine(InternalSpawn());
+
+            IEnumerator InternalSpawn()
+            {
+                // Get the operation handle.
+                AsyncOperationHandle<T> assetHandle = Addressables.LoadAssetAsync<T>(address);
+
+                // Wait and load.
+                yield return assetHandle;
+
+                if (assetHandle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    // Spawn the asset.
+                    T asset = spawn ? UnityEngine.Object.Instantiate(assetHandle.Result) : assetHandle.Result;
+
+                    // Return the target asset.
+                    onSpawned?.Invoke(asset);
+                }
+                else
+                {
+                    Debug.LogError($"[{address}] is invalid[{assetHandle.Status}], could not find any asset!");
+                }
+            }
         }
 
         /// <summary>

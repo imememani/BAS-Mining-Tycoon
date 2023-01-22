@@ -9,7 +9,7 @@
         /// </summary>
         public bool CanBeMinedBy(Tier otherTier)
         {
-            int a = (int)otherTier;
+            int a = (int)otherTier + 1; // + 1 because we want the current tier to be able to mine the next tier too.
             int b = (int)tier;
 
             return b <= a;

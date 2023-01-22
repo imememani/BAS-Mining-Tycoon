@@ -15,6 +15,9 @@ namespace MiningTycoon
         // Optional spawn address.
         public string address;
 
+        // Shop icon address.
+        public string iconAddress;
+
         // How much health before breaking?
         public float health = 100.0f;
 

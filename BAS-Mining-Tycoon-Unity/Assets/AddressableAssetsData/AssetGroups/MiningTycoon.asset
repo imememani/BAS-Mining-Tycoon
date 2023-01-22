@@ -117,6 +117,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
+  - m_GUID: cec788a9bec1ff4458af97448dcb5c34
+    m_Address: Tycoon.UI.Category
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 9f702aa74964cd049bf2f927f5d06dc9
+    m_Address: Tycoon.UI.ShopItem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b14c4d9d8b63f3247be008fe8b53d3ae, type: 2}
   m_SchemaSet:
