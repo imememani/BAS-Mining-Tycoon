@@ -35,7 +35,6 @@
     "com.unity.xr.management": "4.0.7",
     "com.unity.xr.oculus": "1.12.1",
     "com.unity.xr.windowsmr": "4.6.4",
-    "com.valvesoftware.unity.openvr": "file:../Assets/SDK/com.valvesoftware.unity.openvr-1.1.4.tgz",
     "jillejr.newtonsoft.json-for-unity.converters": "1.1.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
