@@ -11,7 +11,7 @@ namespace MiningTycoon
             data = (ToolItem)Entry.ItemDatabase[id];
 
             // Bump the velocity.
-            velocityMultiplier = 0.0025f * data.damageMultiplier;
+            velocityMultiplier = 0.02f * data.damageMultiplier;
 
             Debug.Log($"PICKAXE: {data?.id}");
         }

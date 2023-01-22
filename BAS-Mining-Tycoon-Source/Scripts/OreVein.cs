@@ -13,7 +13,7 @@ namespace MiningTycoon
         private void Awake()
         {
             // DEBUG
-            data = new VeinItem() { health = 250.0f };
+            data = (VeinItem)Entry.ItemDatabase["Copper"];
 
             deformable = GetComponent<Deformable>();
             if (deformable == null) deformable = gameObject.AddComponent<Deformable>();
@@ -42,9 +42,6 @@ namespace MiningTycoon
             // Prevents mine spam.
             lastMineTime = Time.time + 0.1f;
 
-            // Spawn ore.
-            Entry.SpawnItem(data.dropID, collisionData.contacts[0].point + Vector3.up, Quaternion.identity);
-
             // Deduct health from pickaxe.
             pickaxe.TakeHealth(5);
             TakeHealth(ref data.health, 5.0f * pickaxe.data.damageMultiplier);
@@ -56,6 +53,9 @@ namespace MiningTycoon
                 mc.sharedMesh = null;
                 mc.sharedMesh = mesh;
             }
+
+            // Spawn ore.
+            Entry.SpawnItem(data.dropID, collisionData.contacts[0].point + Vector3.up, Quaternion.identity);
         }
     }
 }

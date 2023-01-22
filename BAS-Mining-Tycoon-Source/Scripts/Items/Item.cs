@@ -17,5 +17,8 @@ namespace MiningTycoon
 
         // How much health before breaking?
         public float health = 100.0f;
+
+        // How much is this worth?
+        public float value = 0.0f;
     }
 }

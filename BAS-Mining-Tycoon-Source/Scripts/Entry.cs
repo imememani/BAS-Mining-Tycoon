@@ -44,7 +44,15 @@ namespace MiningTycoon
         /// </summary>
         public static void SpawnItem(string id, Vector3 position, Quaternion rotation, Action<GameObject> onItemSpawned = null)
         {
-            Catalog.InstantiateAsync(ItemDatabase[id].address, position, rotation, null, go => onItemSpawned?.Invoke(go), "Tycoon->Spawn");
+            if (!ItemDatabase.TryGetValue(id, out Item item))
+            {
+                Debug.LogError($"Item '{id}' does not exist in the tycoon database.");
+                return;
+            }
+
+            Debug.Log($"Spawning '{id}' @ '{item.address}'");
+
+            Catalog.InstantiateAsync(item.address, position, rotation, null, go => onItemSpawned?.Invoke(go), "Tycoon->Spawn");
         }
 
         /// <summary>
