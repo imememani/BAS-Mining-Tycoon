@@ -16,7 +16,7 @@ namespace MiningTycoon
             foreach (var reference in Entry.References)
             {
                 // Is this a zone?
-                if (reference == null || !reference.name.Contains("Zones"))
+                if (reference == null || reference.name != "Zones")
                 { continue; }
 
                 foreach (Transform zone in reference.transforms)
@@ -32,7 +32,7 @@ namespace MiningTycoon
                     }
 
                     // Parse the tier.
-                    Tier tier = (Tier)System.Enum.Parse(typeof(Tier), reference.name.Replace("Zones", string.Empty));
+                    Tier tier = (Tier)System.Enum.Parse(typeof(Tier), zone.name.Replace("-Zone", string.Empty));
 
                     // Generate a new batch for this zone.
                     zone.GenerateOreInZone(tier);

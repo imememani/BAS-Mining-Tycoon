@@ -61,7 +61,7 @@ public class OreZone : MonoBehaviour
         bool doesContainGroup = false;
         foreach (var reference in level.customReferences)
         {
-            if (string.CompareOrdinal(reference.name, $"{oreTier}Zones") == 0)
+            if (string.CompareOrdinal(reference.name, "Zones") == 0)
             {
                 doesContainGroup = true;
 
@@ -87,7 +87,7 @@ public class OreZone : MonoBehaviour
         {
             level.customReferences.Add(new Level.CustomReference()
             {
-                name = $"{oreTier}Zones",
+                name = "Zones",
                 transforms = new System.Collections.Generic.List<Transform>() { transform }
             });
 

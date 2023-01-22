@@ -21,9 +21,9 @@ namespace MiningTycoon
 
         private void Awake()
         {
-            categoryAnchor = transform.GetChild(1).GetChild(1);
-            itemAnchor = transform.GetChild(1).GetChild(3);
-            spawnPoint = transform.GetChild(1).GetChild(4);
+            categoryAnchor = transform.GetChild(2).GetChild(1);
+            itemAnchor = transform.GetChild(2).GetChild(3);
+            spawnPoint = transform.GetChild(2).GetChild(4);
 
             // Clear any UI.
             Refresh();
