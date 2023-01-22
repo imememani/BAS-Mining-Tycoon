@@ -52,7 +52,8 @@ namespace MiningTycoon
             VeinItem vein = (VeinItem)Entry.ItemDatabase[tier.ToString()];
 
             // Calculate a random amount.
-            int population = Random.Range(1, 25);
+            Vector2 map = tier.GetPopulationMap();
+            int population = (int)Random.Range(map.x, map.y);
 
             // Spawn the ores.
             Vector3 origin = zoneObject.position;
@@ -77,6 +78,22 @@ namespace MiningTycoon
                     go.transform.SetParent(zoneObject);
                 });
             }
+        }
+
+        /// <summary>
+        /// Get a tiers population map.
+        /// </summary>
+        public static Vector2 GetPopulationMap(this Tier tier)
+        {
+            switch (tier)
+            {
+                case Tier.Copper: return new Vector2(3, 15);
+                case Tier.Iron: return new Vector2(2, 13);
+                case Tier.Ruby: return new Vector2(1, 10);
+                case Tier.Gold: return new Vector2(0, 5);
+            }
+
+            return Vector2.one;
         }
     }
 }
