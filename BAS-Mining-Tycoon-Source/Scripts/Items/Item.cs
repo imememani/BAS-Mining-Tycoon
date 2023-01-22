@@ -20,5 +20,8 @@ namespace MiningTycoon
 
         // How much is this worth?
         public float value = 0.0f;
+
+        public virtual Item Copy() 
+        { return MemberwiseClone() as Item; }
     }
 }

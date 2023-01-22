@@ -23,7 +23,52 @@ MonoBehaviour:
     m_SerializedLabels:
     - Windows
   - m_GUID: 5f3995fd3b03e2e4b8f0cd8b4034b523
-    m_Address: MiningTycoon.TestOre
+    m_Address: MiningTycoon.BaseOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: b2084fe2a974a2847b2d711a8ce19546
+    m_Address: Tycoon.CopperOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 266a443ee4e15dd47818a51663fdeaaf
+    m_Address: Tycoon.GoldOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 39a1d283dbbfcc94ba6c8051eb4f5463
+    m_Address: Tycoon.IronOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 1e79446999822bf4f9e1415ea387f9e1
+    m_Address: Tycoon.RubyOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 469eb3f4b60f9044fa5ebf34e61509fb
+    m_Address: Tycoon.CopperVein
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 1f3c01bbe4ffc9344904341b6f28e9a6
+    m_Address: Tycoon.GoldVein
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 7ce98c159634ac447860a8b6d4bc9605
+    m_Address: Tycoon.IronVein
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: eb0ed1d1d2de2f643bb11136564da977
+    m_Address: Tycoon.RubyVein
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: d85f7618fc3f856488da7cb9a27f7a77
+    m_Address: Tycoon.BaseVein
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows

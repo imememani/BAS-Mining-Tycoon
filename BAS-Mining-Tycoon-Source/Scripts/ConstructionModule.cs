@@ -11,7 +11,7 @@ namespace MiningTycoon
 
         public override void OnItemLoaded(ThunderRoad.Item item)
         {
-            item.gameObject.AddComponent<Pickaxe>().LoadByID(loadByID);
+            item.gameObject.AddComponent<Pickaxe>().Load(loadByID);
             base.OnItemLoaded(item);
         }
     }

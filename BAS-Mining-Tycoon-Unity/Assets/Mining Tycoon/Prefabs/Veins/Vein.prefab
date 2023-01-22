@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7966161800307497791}
   - component: {fileID: 8547161183855388559}
   m_Layer: 0
-  m_Name: Comon ores model
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

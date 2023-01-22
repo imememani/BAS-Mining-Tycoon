@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MiningTycoon
 {
-    public class OreVein : DamageReciever
+    public class OreVein : DamageReciever, ITycoonObject
     {
         public VeinItem data;
         private Deformable deformable;
@@ -56,6 +56,14 @@ namespace MiningTycoon
 
             // Spawn ore.
             Entry.SpawnItem(data.dropID, collisionData.contacts[0].point + Vector3.up, Quaternion.identity);
+        }
+
+        public void Load(string id)
+        {
+            // Create a reference copy.
+            data = (VeinItem)(Entry.ItemDatabase[id]).Copy();
+
+            Debug.Log($"VEIN LOADED: {data?.id}");
         }
     }
 }

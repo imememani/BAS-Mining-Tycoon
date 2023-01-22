@@ -2,13 +2,14 @@
 
 namespace MiningTycoon
 {
-    public class Pickaxe : Deformer
+    public class Pickaxe : Deformer, ITycoonObject
     {
         public ToolItem data;
 
-        public void LoadByID(string id)
+        public void Load(string id)
         {
-            data = (ToolItem)Entry.ItemDatabase[id];
+            // Create a reference copy.
+            data = (ToolItem)(Entry.ItemDatabase[id]).Copy();
 
             // Bump the velocity.
             velocityMultiplier = 0.02f * data.damageMultiplier;

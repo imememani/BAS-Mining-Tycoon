@@ -7,9 +7,15 @@
         /// <summary>
         /// Can this item mine the target tier?
         /// </summary>
-        public bool CanMine(Tier tier)
+        public bool CanMine(Tier otherTier)
         {
-            return (int)this.tier >= (int)tier;
+            int a = (int)otherTier;
+            int b = (int)tier;
+
+            return a <= b;
         }
+
+        public override Item Copy()
+        { return this.MemberwiseClone() as VeinItem; }
     }
 }

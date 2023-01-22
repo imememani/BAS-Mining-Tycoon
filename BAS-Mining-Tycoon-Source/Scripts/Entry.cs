@@ -21,6 +21,11 @@ namespace MiningTycoon
         public static Dictionary<string, Item> ItemDatabase { get; } = new Dictionary<string, Item>();
 
         /// <summary>
+        /// All level references.
+        /// </summary>
+        public static List<Level.CustomReference> References { get; private set; }
+
+        /// <summary>
         /// Location of this mod.
         /// </summary>
         private static string Location { get; set; }
@@ -28,13 +33,12 @@ namespace MiningTycoon
         public override IEnumerator OnLoadCoroutine()
         {
             Location = Path.Combine(Application.streamingAssetsPath, "Mods", "Mining Tycoon");
+
+            References = level.customReferences;
             LoadItems();
 
-            // For testing.
-            foreach (var ore in level.customReferences[0].transforms)
-            {
-                ore.gameObject.AddComponent<OreVein>();
-            }
+            // Generate ore.
+            OreGenerator.GenerateOreVeins();
 
             return base.OnLoadCoroutine();
         }

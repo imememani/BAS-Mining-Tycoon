@@ -7,5 +7,8 @@
 
         // How much ore does a deposite spawn when hit by this?
         public float oreMultiplier = 1.0f;
+
+        public override Item Copy()
+        { return this.MemberwiseClone() as ToolItem; }
     }
 }
