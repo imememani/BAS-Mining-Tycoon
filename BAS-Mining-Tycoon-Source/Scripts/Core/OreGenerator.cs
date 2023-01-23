@@ -39,7 +39,7 @@ namespace MiningTycoon
                         }
 
                         // Parse the tier.
-                        Tier tier = (Tier)System.Enum.Parse(typeof(Tier), zone.name.Replace("-Zone", string.Empty));
+                        string tier = zone.name.Replace("-Zone", string.Empty);
 
                         // Generate a new batch for this zone.
                         zone.GenerateOreInZone(tier);
@@ -54,7 +54,7 @@ namespace MiningTycoon
         /// <summary>
         /// Generate ore in a zone.
         /// </summary>
-        public static void GenerateOreInZone(this Transform zoneObject, Tier tier)
+        public static void GenerateOreInZone(this Transform zoneObject, string tier)
         {
             // The maximum bounds to spawn.
             Bounds bounds = new Bounds(zoneObject.position, zoneObject.localScale);
@@ -63,7 +63,7 @@ namespace MiningTycoon
             VeinItem vein = (VeinItem)Entry.ItemDatabase[tier.ToString()];
 
             // Calculate a random amount.
-            Vector2 map = tier.GetPopulationMap();
+            Vector2 map = new Vector2(vein.minSpawn, vein.maxSpawn);
             int population = (int)Random.Range(map.x, map.y);
 
             // Spawn the ores.
@@ -115,22 +115,6 @@ namespace MiningTycoon
                 // Spawn new veins.
                 GenerateOreVeins();
             }
-        }
-
-        /// <summary>
-        /// Get a tiers population map.
-        /// </summary>
-        public static Vector2 GetPopulationMap(this Tier tier)
-        {
-            switch (tier)
-            {
-                case Tier.Copper: return new Vector2(3, 15);
-                case Tier.Iron: return new Vector2(2, 13);
-                case Tier.Ruby: return new Vector2(1, 10);
-                case Tier.Gold: return new Vector2(0, 5);
-            }
-
-            return Vector2.one;
         }
     }
 }

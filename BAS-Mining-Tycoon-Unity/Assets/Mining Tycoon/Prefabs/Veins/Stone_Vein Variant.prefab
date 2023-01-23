@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4027719435807131968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 226297037369254704, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5060444177187149915, guid: 5be31805a66cd264191579cfe9cf5642,
+        type: 3}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.0671594
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217727304951463529, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_Name
+      value: Stone_Vein Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966161800307497791, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 215a7fce00f2d3b418a7af8143a26a85, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d85f7618fc3f856488da7cb9a27f7a77, type: 3}

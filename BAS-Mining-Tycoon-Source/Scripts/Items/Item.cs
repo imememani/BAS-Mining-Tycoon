@@ -5,7 +5,7 @@ namespace MiningTycoon
     public class Item
     {
         // What item tier is this?
-        public Tier tier = Tier.Copper;
+        public int tier = 0;
 
         /// <summary>
         /// Reference and display name.

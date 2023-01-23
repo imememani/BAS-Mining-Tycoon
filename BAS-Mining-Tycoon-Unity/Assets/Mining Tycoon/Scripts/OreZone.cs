@@ -18,6 +18,8 @@ public class OreZone : MonoBehaviour
             case Tier.Ruby: ColorUtility.TryParseHtmlString("#de0b1d", out Color ruby); return ruby;
 
             case Tier.Gold: ColorUtility.TryParseHtmlString("#dec50b", out Color gold); return gold;
+
+            case Tier.Stone: ColorUtility.TryParseHtmlString("#242323", out Color stone); return stone;
         }
 
         return Color.black;
