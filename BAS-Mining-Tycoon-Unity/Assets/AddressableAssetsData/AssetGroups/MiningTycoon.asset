@@ -133,9 +133,10 @@ MonoBehaviour:
     m_SerializedLabels:
     - Windows
   - m_GUID: e2b91f9cedbf77c41a6723dc90000711
-    m_Address: Tycoon.Audio.StorePurchase
+    m_Address: Tycoon.Audio.StoreSounds
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Windows
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b14c4d9d8b63f3247be008fe8b53d3ae, type: 2}
   m_SchemaSet:

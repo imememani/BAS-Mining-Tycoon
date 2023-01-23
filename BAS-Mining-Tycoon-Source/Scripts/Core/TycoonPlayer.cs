@@ -25,7 +25,13 @@ namespace MiningTycoon
         public SVector velocity;
 
         // All world objects.
-        public TycoonObjectData[] worldObjects = System.Array.Empty<TycoonObjectData>();
+        public TycoonObjectData[] worldObjects = Array.Empty<TycoonObjectData>();
+
+        public TycoonPlayer() 
+        {
+            // Set creation date.
+            profileCreationDate = DateTime.Now;
+        }
 
         /// <summary>
         /// Update this instances data, like the position and velocity.

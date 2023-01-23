@@ -90,6 +90,10 @@ namespace MiningTycoon
 
         private void LateUpdate()
         {
+            // Await init.
+            if (currencyDisplay == null || TycoonSaveHandler.Current == null)
+            { return; }
+
             currencyDisplay.text = TycoonSaveHandler.Current.currency.ToString();
             oreCollectionDisplay.text = "0";
 
@@ -174,13 +178,7 @@ namespace MiningTycoon
                     Entry.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(0).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
 
                     go.transform.GetChild(2).GetComponent<Text>().text = items[index].id;
-                    go.GetComponent<Button>().onClick.AddListener(() =>
-                    {
-                        if (!CanPurchase(items[index]))
-                        { return; }
-
-                        Purchase(items[index]);
-                    });
+                    go.GetComponent<Button>().onClick.AddListener(() => DisplayItem(items[index]));
                 }, "Shop->ShopItem");
             }
         }
