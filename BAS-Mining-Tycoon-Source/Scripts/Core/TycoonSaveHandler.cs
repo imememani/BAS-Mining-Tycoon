@@ -20,6 +20,8 @@ namespace MiningTycoon
         /// </summary>
         private static string SaveLocation { get => Path.Combine(Entry.Location, "Saves", "player0.tycoon"); }
 
+        public static event PlayerLoadedEvent PlayerLoaded;
+
         /// <summary>
         /// Save the current session.
         /// </summary>
@@ -64,6 +66,9 @@ namespace MiningTycoon
                     objectData.Load();
                     Logging.Log($"Loaded Object: {objectData.itemID}");
                 }
+
+                // Trigger events.
+                PlayerLoaded?.Invoke(Current);
 
                 Logging.Log("Loaded previous session!");
                 return true;

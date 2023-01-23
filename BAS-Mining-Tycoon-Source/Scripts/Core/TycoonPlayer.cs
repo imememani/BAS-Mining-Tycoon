@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using ThunderRoad;
+using UnityEngine;
 
 namespace MiningTycoon
 {
@@ -28,6 +29,10 @@ namespace MiningTycoon
         // All world objects.
         public TycoonObjectData[] worldObjects = Array.Empty<TycoonObjectData>();
 
+        // Invoked when currency has changed.
+        [JsonIgnore]
+        public Action<float> currencyChanged;
+
         // Set on load.
         [JsonIgnore]
         private DateTime loadTime;
@@ -36,6 +41,20 @@ namespace MiningTycoon
         {
             loadTime = DateTime.Now;
         }
+
+        /// <summary>
+        /// Add or subtract currency.
+        /// </summary>
+        public void AddCurrency(float amount)
+        {
+            currency = Mathf.Clamp(currency + amount, 0, long.MaxValue);
+            currencyChanged?.Invoke(amount);
+        }
+
+        /// <summary>
+        /// Get the current playtime.
+        /// </summary>
+        public TimeSpan GetRealtimePlaytime() => playtime.Add(DateTime.Now.Subtract(loadTime));
 
         /// <summary>
         /// Update this instances data, like the position and velocity.

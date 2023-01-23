@@ -77,7 +77,11 @@ namespace MiningTycoon
 
             // Add categories.
             AddCategory("Items");
+            AddCategory("Misc");
             currentCategory = "Items";
+
+            // Event hooks.
+            TycoonSaveHandler.PlayerLoaded += HandlePlayerLoad;
 
             Logging.Log("Shop initialized.");
         }
@@ -103,10 +107,10 @@ namespace MiningTycoon
             { return; }
 
             // Lazy way to display this stuff but I'll update it later, probably.
-            currencyDisplay.text = $"{TycoonSaveHandler.Current.currency:0.00}";
             oreCollectionDisplay.text = TycoonSaveHandler.Current.oresCollected.ToString();
 
-            playtimeDisplay.text = $"{TycoonSaveHandler.Current.playtime.Days}D {TycoonSaveHandler.Current.playtime.Hours}H {TycoonSaveHandler.Current.playtime.Minutes}M {TycoonSaveHandler.Current.playtime.Seconds}S";
+            TimeSpan time = TycoonSaveHandler.Current.GetRealtimePlaytime();
+            playtimeDisplay.text = $"{(time.Days > 0 ? $"{time.Days}D " : "")}{(time.Hours > 0 ? $"{time.Hours}H " : "")}{(time.Minutes > 0 ? $"{time.Minutes}M " : "")}{(time.Seconds > 0 ? $"{time.Seconds}S " : "")}";
         }
 
         /// <summary>
@@ -246,7 +250,7 @@ namespace MiningTycoon
         private void Purchase(Item item)
         {
             // Deduct doubloons.
-            TycoonSaveHandler.Current.currency -= item.value;
+            TycoonSaveHandler.Current.AddCurrency(-item.value);
 
             // Spawn the item.
             Entry.SpawnTycoonItem(item.id, spawnPoint.position, Quaternion.identity);
@@ -259,9 +263,9 @@ namespace MiningTycoon
             AudioSource.PlayClipAtPoint(shopSFX.sounds[0], Player.local.transform.position);
 
             // Display floaty.
-            TycoonFloatyText.Create($"<color=white>{item.id}</color>\n     <color=red>-{item.value}</color>", 
-                                        Player.local.head.transform.position + (Player.local.head.transform.forward * 0.5f), 
-                                       Player.local.head.transform, 
+            TycoonFloatyText.Create($"<color=white>{item.id}</color>\n     <color=red>-{item.value}</color>",
+                                        Player.local.head.transform.position + (Player.local.head.transform.forward * 0.5f),
+                                       Player.local.head.transform,
                                            3.0f);
 
             TycoonSaveHandler.Save();
@@ -283,6 +287,26 @@ namespace MiningTycoon
             DisplayItem(currentlyDisplaying);
 
             Logging.Log($"Shop refreshed (category: {currentCategory}).");
+        }
+
+        /// <summary>
+        /// Invoked when the player is loaded.
+        /// </summary>
+        private void HandlePlayerLoad(TycoonPlayer player)
+        {
+            // Update display.
+            currencyDisplay.text = $"{TycoonSaveHandler.Current.currency:0.00}";
+
+            // Hook in to events.
+            TycoonSaveHandler.Current.currencyChanged += amount =>
+            {
+                // Update display.
+                currencyDisplay.text = $"{TycoonSaveHandler.Current.currency:0.00}";
+
+                // Refresh shop if an item is on display.
+                if (currentlyDisplaying != null)
+                { Refresh(); }
+            };
         }
     }
 }
