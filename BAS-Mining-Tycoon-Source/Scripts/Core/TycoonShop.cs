@@ -9,8 +9,12 @@ namespace MiningTycoon
 {
     public class TycoonShop : MonoBehaviour
     {
+        public static TycoonShop local;
+
         private readonly string categoryAddress = "Tycoon.UI.Category";
         private readonly string shopItemAddress = "Tycoon.UI.ShopItem";
+
+        public AudioContainer shopSFX;
 
         // Generic anchors.
         private Transform categoryAnchor;
@@ -34,12 +38,12 @@ namespace MiningTycoon
         private string currentCategory;
         private Text currentCategoryText;
 
-        private AudioContainer shopSFX;
-
         private readonly Dictionary<string, List<Item>> categories = new Dictionary<string, List<Item>>();
 
         private void Awake()
         {
+            local = this;
+
             // Load shop sounds.
             Catalog.LoadAssetAsync<AudioContainer>("Tycoon.Audio.StoreSounds", container => shopSFX = container, "Shop->Awake");
 
@@ -63,6 +67,9 @@ namespace MiningTycoon
 
             purchase.onClick.AddListener(() => Purchase(currentlyDisplaying));
             itemUI.transform.GetChild(8).GetComponent<Button>().onClick.AddListener(() => DisplayItem(null));
+
+            // Collector machine.
+            transform.GetChild(5).GetChild(0).gameObject.AddComponent<Collector>();
 
             // Clear any UI.
             Refresh();
@@ -94,6 +101,7 @@ namespace MiningTycoon
             if (currencyDisplay == null || TycoonSaveHandler.Current == null)
             { return; }
 
+            // Lazy way to display this stuff but I'll update it later, probably.
             currencyDisplay.text = TycoonSaveHandler.Current.currency.ToString();
             oreCollectionDisplay.text = "0";
 

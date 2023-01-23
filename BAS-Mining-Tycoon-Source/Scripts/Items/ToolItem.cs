@@ -11,6 +11,8 @@
         // Instead of a 75% chance there's now an 82.5% chance.
         public float oreMultiplier = 1.0f;
 
+        public override string GetShopDescription() => $"+ {health} health\n+ x{damageMultiplier} damage\n+ x{oreMultiplier} ore";
+
         public override Item Copy()
         { return this.MemberwiseClone() as ToolItem; }
     }

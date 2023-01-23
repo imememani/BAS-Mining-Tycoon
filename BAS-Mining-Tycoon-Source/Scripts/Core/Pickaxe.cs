@@ -49,7 +49,7 @@ namespace MiningTycoon
             OreVein vein = collision.collider.GetComponentInParent<OreVein>();
 
             // Velocity has been bumped to 2.0 so the player really needs a hard swing.
-            return base.ShouldDeformTarget(collision, target) && collision.relativeVelocity.magnitude >= 5.0f && vein != null && vein.data.CanBeMinedBy(data.tier) && vein.data.ShouldDropOre(data.oreMultiplier);
+            return base.ShouldDeformTarget(collision, target) && collision.relativeVelocity.magnitude >= 5.0f && vein != null && vein.data.CanBeMinedBy(data.tier);
         }
 
         /// <summary>

@@ -60,7 +60,7 @@ namespace MiningTycoon
             }
 
             // Spawn ore.
-            Entry.SpawnTycoonItem(data.dropID, collisionData.contacts[0].point + Vector3.up, Quaternion.identity);
+            if (data.ShouldDropOre(pickaxe.data.oreMultiplier)) Entry.SpawnTycoonItem(data.dropID, collisionData.contacts[0].point + Vector3.up, Quaternion.identity);
         }
 
         public void Load(string id)
