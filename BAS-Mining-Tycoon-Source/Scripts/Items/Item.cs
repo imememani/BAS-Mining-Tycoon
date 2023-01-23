@@ -24,6 +24,8 @@ namespace MiningTycoon
         // How much is this worth?
         public float value = 0.0f;
 
+        public virtual string GetShopDescription() => "This is definitely not a bug."; 
+
         public virtual Item Copy() 
         { return MemberwiseClone() as Item; }
     }

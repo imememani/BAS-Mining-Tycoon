@@ -2,7 +2,17 @@
 {
     public class VeinItem : Item
     {
+        // Ore id to spawn.
         public string dropID;
+
+        // How often between 0-100 does ore drop?
+        public float oreDropChance = 100.0f;
+
+        /// <summary>
+        /// Should this deposit drop ore this frame?
+        /// </summary>
+        public bool ShouldDropOre(float dropMultiplier = 1.0f)
+        { return UnityEngine.Random.Range(0, 100) <= (oreDropChance * dropMultiplier); }
 
         /// <summary>
         /// Can this item mine the target tier?

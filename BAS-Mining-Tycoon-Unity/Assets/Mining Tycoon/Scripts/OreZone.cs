@@ -27,7 +27,7 @@ public class OreZone : MonoBehaviour
     {
         if (lastTier != oreTier)
         {
-            ValidateCustomReference(lastTier, true);
+            ValidateCustomReference(true);
             lastTier = oreTier;
         }
 
@@ -36,35 +36,32 @@ public class OreZone : MonoBehaviour
         transform.localRotation = Quaternion.identity;
 
         // Ensure the zone exists in references.
-        ValidateCustomReference(oreTier, false);
+        ValidateCustomReference();
     }
 
     private void OnDestroy()
     {
-        ValidateCustomReference(oreTier, true);
+        ValidateCustomReference(true);
     }
 
     private void OnEnable()
     {
         // Ensure the zone exists in references.
-        ValidateCustomReference(oreTier, false);
+        ValidateCustomReference();
     }
 
     /// <summary>
     /// Add or remove this zone.
     /// </summary>
-    private void ValidateCustomReference(Tier oreTier, bool remove)
+    private void ValidateCustomReference(bool remove = false)
     {
         // Dirty but cope.
         Level level = FindObjectOfType<Level>();
 
-        bool doesContainGroup = false;
         foreach (var reference in level.customReferences)
         {
             if (string.CompareOrdinal(reference.name, "Zones") == 0)
             {
-                doesContainGroup = true;
-
                 if (reference.transforms.Contains(transform))
                 {
                     if (remove)
@@ -79,11 +76,11 @@ public class OreZone : MonoBehaviour
                     Debug.Log($"{transform.name} added to zones!");
                 }
 
-                break;
+                return;
             }
         }
 
-        if (!doesContainGroup && !remove)
+        if (!remove)
         {
             level.customReferences.Add(new Level.CustomReference()
             {
