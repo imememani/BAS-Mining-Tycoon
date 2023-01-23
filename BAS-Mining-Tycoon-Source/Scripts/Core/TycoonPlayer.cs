@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using ThunderRoad;
 
 namespace MiningTycoon
@@ -16,7 +17,7 @@ namespace MiningTycoon
         public long oresCollected = 0;
 
         // The exact date this player was created.
-        public DateTime profileCreationDate;
+        public TimeSpan playtime;
 
         // Players last position.
         public SVector position;
@@ -27,10 +28,13 @@ namespace MiningTycoon
         // All world objects.
         public TycoonObjectData[] worldObjects = Array.Empty<TycoonObjectData>();
 
-        public TycoonPlayer() 
+        // Set on load.
+        [JsonIgnore]
+        private DateTime loadTime;
+
+        public TycoonPlayer()
         {
-            // Set creation date.
-            profileCreationDate = DateTime.Now;
+            loadTime = DateTime.Now;
         }
 
         /// <summary>
@@ -41,6 +45,9 @@ namespace MiningTycoon
             // Map the players position and rotation.
             position = new SVector().From(Player.local.transform.position);
             velocity = new SVector().From(Player.local.locomotion.rb.velocity);
+
+            // Update playtime.
+            playtime = playtime.Add(DateTime.Now.Subtract(loadTime));
 
             // Under the map?
             if (position.y <= -10.0f)

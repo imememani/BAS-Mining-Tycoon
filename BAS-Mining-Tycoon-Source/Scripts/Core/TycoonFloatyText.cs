@@ -15,7 +15,7 @@ namespace MiningTycoon.Scripts.Core
         /// <summary>
         /// Create a new floaty!
         /// </summary>
-        public static void Create(Vector3 position, Transform lookTarget, string text, float time)
+        public static void Create(string text, Vector3 position, Transform lookTarget, float time)
         {
             Catalog.InstantiateAsync("Tycoon.UI.FloatyText", position, Quaternion.identity, null, go =>
             {

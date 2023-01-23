@@ -102,11 +102,10 @@ namespace MiningTycoon
             { return; }
 
             // Lazy way to display this stuff but I'll update it later, probably.
-            currencyDisplay.text = TycoonSaveHandler.Current.currency.ToString();
-            oreCollectionDisplay.text = "0";
+            currencyDisplay.text = $"{TycoonSaveHandler.Current.currency:0.00}";
+            oreCollectionDisplay.text = TycoonSaveHandler.Current.oresCollected.ToString();
 
-            TimeSpan playTime = DateTime.Now.Subtract(TycoonSaveHandler.Current.profileCreationDate);
-            playtimeDisplay.text = $"{playTime.Days}D {playTime.Hours}H {playTime.Minutes}M {playTime.Seconds}S";
+            playtimeDisplay.text = $"{TycoonSaveHandler.Current.playtime.Days}D {TycoonSaveHandler.Current.playtime.Hours}H {TycoonSaveHandler.Current.playtime.Minutes}M {TycoonSaveHandler.Current.playtime.Seconds}S";
         }
 
         /// <summary>
