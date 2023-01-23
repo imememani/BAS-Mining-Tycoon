@@ -1,4 +1,5 @@
 ﻿using BASLogger;
+using MiningTycoon.Scripts.Core;
 using System;
 using System.Collections.Generic;
 using ThunderRoad;
@@ -256,6 +257,12 @@ namespace MiningTycoon
             // Play sound.
             // 0 - Purchase.
             AudioSource.PlayClipAtPoint(shopSFX.sounds[0], Player.local.transform.position);
+
+            // Display floaty.
+            TycoonFloatyText.Create($"<color=white>{item.id}</color>\n     <color=red>-{item.value}</color>", 
+                                        Player.local.head.transform.position + (Player.local.head.transform.forward * 0.5f), 
+                                       Player.local.head.transform, 
+                                           3.0f);
 
             TycoonSaveHandler.Save();
         }

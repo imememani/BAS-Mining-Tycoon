@@ -25,14 +25,15 @@ namespace MiningTycoon
             Destroy(worldObject.gameObject);
 
             // Add currency.
-            TycoonSaveHandler.Current.currency += item is OreItem ? item.value : item.value / 3;
+            float value = item is OreItem ? item.value : item.value / 3;
+            TycoonSaveHandler.Current.currency += value;
             TycoonSaveHandler.Current.oresCollected += 1;
             AudioSource.PlayClipAtPoint(TycoonShop.local.shopSFX.sounds[1], Player.local.transform.position);
 
             // Display floaty.
-            TycoonFloatyText.Create($"<color=white>{item.id}</color>\n      <color=yellow>{item.value}</color>", Player.local.head.transform.position + (Player.local.head.transform.forward * 0.5f), Player.local.head.transform, 3.0f);
+            TycoonFloatyText.Create($"<color=white>{item.id}</color>\n      <color=yellow>{value}</color>", Player.local.head.transform.position + (Player.local.head.transform.forward * 0.5f), Player.local.head.transform, 3.0f);
 
-            Logging.Log($"Collected '{item.value}' doubloons from '{item.id}'!");
+            Logging.Log($"Collected '{value}' doubloons from '{item.id}'!");
         }
     }
 }
