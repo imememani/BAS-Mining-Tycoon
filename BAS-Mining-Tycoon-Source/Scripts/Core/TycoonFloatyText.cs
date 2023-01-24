@@ -15,7 +15,7 @@ namespace MiningTycoon.Scripts.Core
         /// <summary>
         /// Create a new floaty!
         /// </summary>
-        public static void Create(string text, Vector3 position, Transform lookTarget, float time)
+        public static void CreateFloatyCurrency(string text, Vector3 position, Transform lookTarget, float time)
         {
             Catalog.InstantiateAsync("Tycoon.UI.FloatyText", position, Quaternion.identity, null, go =>
             {
@@ -30,11 +30,30 @@ namespace MiningTycoon.Scripts.Core
             }, "FloatyText->Create");
         }
 
+        /// <summary>
+        /// Create a new floaty!
+        /// </summary>
+        public static void CreateFloatyText(string text, Vector3 position, Transform lookTarget, float time)
+        {
+            Catalog.InstantiateAsync("Tycoon.UI.FloatyText", position, Quaternion.identity, null, go =>
+            {
+                TycoonFloatyText floaty = go.AddComponent<TycoonFloatyText>();
+                floaty.GetComponent<TextMesh>().text = text;
+                floaty.transform.GetChild(0).gameObject.SetActive(false);
+
+                floaty.transform.position = position + new Vector3(0, Random.Range(-0.1f, 0.1f), 0);
+                floaty.lookTarget = lookTarget;
+                floaty.timer = Time.time + time;
+
+                Logging.Log("Floaty text created!");
+            }, "FloatyText->Create");
+        }
+
         private void Update()
         {
             if (Time.time > timer)
             {
-                // TODO: Fancy dissolve maybe?
+                // TODO: Fancy dissolve on the floaty text?
                 Destroy(gameObject);
                 return;
             }

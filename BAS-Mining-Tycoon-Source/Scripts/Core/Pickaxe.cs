@@ -1,4 +1,5 @@
-﻿using ThunderRoad;
+﻿using MiningTycoon.Scripts.Core;
+using ThunderRoad;
 using UnityEngine;
 
 namespace MiningTycoon
@@ -36,6 +37,14 @@ namespace MiningTycoon
             if (data.health <= 0)
             {
                 // Break item.
+                GetComponent<ThunderRoad.Item>().Despawn();
+                AudioSource.PlayClipAtPoint(sounds.sounds[1], transform.position);
+
+                // Notify user.
+                TycoonFloatyText.CreateFloatyText("<color=red>Pickaxe Snapped!</color>",
+                                                 TycoonUtilities.GetFloatyTextPlayerAnchor(),
+                                                 Player.local.head.transform,
+                                                     3.0f);
                 return;
             }
         }
@@ -62,7 +71,7 @@ namespace MiningTycoon
             { return; }
 
             // Yes, play a hit sound.
-            AudioSource.PlayClipAtPoint(sounds.PickAudioClip(), collisionData.contacts[0].point, 1.0f);
+            AudioSource.PlayClipAtPoint(sounds.sounds[0], collisionData.contacts[0].point, 1.0f);
         }
     }
 }

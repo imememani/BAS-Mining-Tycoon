@@ -13,10 +13,9 @@ namespace MiningTycoon
             Tycoon.WorldObjects.Add(this);
         }
 
-        private void OnDestroy()
-        {
-            Tycoon.WorldObjects.Remove(this);
-        }
+        private void OnDestroy() => Tycoon.WorldObjects.Remove(this);
+
+        private void OnDisable() => Tycoon.WorldObjects.Remove(this);
 
         public void Load(string id)
         {

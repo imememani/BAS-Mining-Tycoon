@@ -50,6 +50,12 @@ namespace MiningTycoon
             // Serialize the data.
             File.WriteAllText(SaveLocation, JsonConvert.SerializeObject(Current));
 
+            // Display floaty.
+            TycoonFloatyText.CreateFloatyText($"<color=green>Tycoon Saved!</color>",
+                                                TycoonUtilities.GetFloatyTextPlayerAnchor() - new Vector3(0, 0.1f, 0),
+                                                Player.local.head.transform,
+                                                    2.0f);
+
             Logging.Log("Current session saved!");
         }
 

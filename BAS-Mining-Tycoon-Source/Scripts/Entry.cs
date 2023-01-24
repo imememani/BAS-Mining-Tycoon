@@ -6,8 +6,6 @@ using UnityEngine;
 
 namespace MiningTycoon
 {
-    // TODO: Need to configure ore vein json spawn rates.
-
     /// <summary>
     /// Mod entry.
     /// 

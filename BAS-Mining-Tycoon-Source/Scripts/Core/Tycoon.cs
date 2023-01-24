@@ -39,7 +39,8 @@ namespace MiningTycoon
         private static bool IsTycoonLoaded { get; set; }
 
         private static float timer;
-
+        private static int worldRegenTickCounter;
+        
         /// <summary>
         /// Initialize the tycoon.
         /// </summary>
@@ -94,9 +95,25 @@ namespace MiningTycoon
 
                 // Run a tick.
                 Tick?.Invoke();
+
+                // Bump ticks.
+                worldRegenTickCounter++;
             }
             else
             { TycoonShop.local.tickTimer.fillAmount = TycoonUtilities.Normalize(Time.time, timer - 60.0f, timer); }
+
+            // 20 Ticks (20 minutes)
+            if (worldRegenTickCounter >= 20)
+            {
+                // Save game.
+                TycoonSaveHandler.Save();
+
+                // Regenerate the world.
+                OreGenerator.RegenerateWorldVeins();
+
+                // Reste ticks.
+                worldRegenTickCounter = 0;
+            }
         }
 
         /// <summary>

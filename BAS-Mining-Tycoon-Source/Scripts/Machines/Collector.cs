@@ -21,7 +21,7 @@ namespace MiningTycoon
             { return; }
 
             // Collect the ore.
-            // TODO: Fancy vanish animation.
+            // TODO: Some kind of despawn animation or particles when selling tools/ore.
             if (worldObject.thunderItem != null)
             { worldObject.thunderItem.Despawn(); }
             else
@@ -34,7 +34,10 @@ namespace MiningTycoon
             AudioSource.PlayClipAtPoint(TycoonShop.local.shopSFX.sounds[1], Player.local.transform.position);
 
             // Display floaty.
-            TycoonFloatyText.Create($"<color=white>{item.id}</color>\n      <color=yellow>{value.FormatDoubloons()}</color>", Player.local.head.transform.position + (Player.local.head.transform.forward * 0.65f), Player.local.head.transform, 3.0f);
+            TycoonFloatyText.CreateFloatyCurrency($"<color=white>{item.id}</color>\n      <color=yellow>{value.FormatDoubloons()}</color>",
+                                                TycoonUtilities.GetFloatyTextPlayerAnchor(), 
+                                                Player.local.head.transform, 
+                                                    3.0f);
 
             Logging.Log($"Collected '{value}' doubloons from '{item.id}'!");
         }

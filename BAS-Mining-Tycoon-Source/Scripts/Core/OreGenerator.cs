@@ -57,7 +57,7 @@ namespace MiningTycoon
         public static void GenerateOreInZone(this Transform zoneObject, string tier)
         {
             // The maximum bounds to spawn.
-            Bounds bounds = new Bounds(zoneObject.position, zoneObject.localScale);
+            Bounds bounds = new Bounds(zoneObject.position, zoneObject.localScale / 2);
 
             // Obtain a copy of the vein data.
             VeinItem vein = (VeinItem)Tycoon.ItemDatabase[tier.ToString()];
@@ -115,7 +115,7 @@ namespace MiningTycoon
                 // Despawn all veins.
                 for (int i = Tycoon.OreVeins.Count - 1; i >= 0; i--)
                 {
-                    // TODO: Have a fancy anim for this.
+                    // TODO: Have a fancy anim for despawning ore veins.
                     Object.Destroy(Tycoon.OreVeins[i].gameObject);
                     yield return null;
                 }

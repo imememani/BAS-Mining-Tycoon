@@ -64,8 +64,8 @@ namespace MiningTycoon
                 AudioSource.PlayClipAtPoint(TycoonShop.local.shopSFX.sounds[0], Vector3.zero);
 
                 // Display floaty.
-                TycoonFloatyText.Create($"\n     <color={(amount < 0 ? "red" : "white")}>{(amount < 0 ? "-" : "")}{amount.FormatDoubloons()}</color>",
-                                            Player.local.head.transform.position + (Player.local.head.transform.forward * 0.65f),
+                TycoonFloatyText.CreateFloatyCurrency($"\n     <color={(amount < 0 ? "red" : "white")}>{(amount < 0 ? "-" : "")}{amount.FormatDoubloons()}</color>",
+                                            TycoonUtilities.GetFloatyTextPlayerAnchor(),
                                            Player.local.head.transform,
                                                3.0f);
             }
