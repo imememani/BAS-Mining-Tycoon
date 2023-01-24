@@ -152,6 +152,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
+  - m_GUID: 1016329020a4efa48826c9aae91c7eb1
+    m_Address: Tycoon.UI.UpgradeModule
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b14c4d9d8b63f3247be008fe8b53d3ae, type: 2}
   m_SchemaSet:

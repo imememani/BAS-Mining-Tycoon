@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using ThunderRoad;
 using UnityEngine;
 
@@ -29,9 +30,14 @@ namespace MiningTycoon
         // All world objects.
         public TycoonObjectData[] worldObjects = Array.Empty<TycoonObjectData>();
 
-        // Invoked when currency has changed.
+        // All unlocked plots.
+        public List<PlotData> plots = new List<PlotData>();
+
+        // Invoked when change has happened.
         [JsonIgnore]
         public Action<float> currencyChanged;
+        [JsonIgnore]
+        public Action<int> oreChanged;
 
         // Set on load.
         [JsonIgnore]
@@ -49,6 +55,15 @@ namespace MiningTycoon
         {
             currency = Mathf.Clamp(currency + amount, 0, long.MaxValue);
             currencyChanged?.Invoke(amount);
+        }
+
+        /// <summary>
+        /// Add or subtract ore.
+        /// </summary>
+        public void AddOre(int amount)
+        {
+            oresCollected = (long)Mathf.Clamp(oresCollected + amount, 0, long.MaxValue);
+            oreChanged?.Invoke(amount);
         }
 
         /// <summary>

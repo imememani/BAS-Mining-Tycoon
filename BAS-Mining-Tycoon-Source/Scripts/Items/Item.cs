@@ -4,13 +4,13 @@ namespace MiningTycoon
 {
     public class Item
     {
-        // What item tier is this?
-        public int tier = 0;
-
         /// <summary>
         /// Reference and display name.
         /// </summary>
         public string id;
+
+        // What item tier is this?
+        public int tier = 0;
 
         // Optional spawn address.
         public string address;
@@ -24,7 +24,10 @@ namespace MiningTycoon
         // How much is this worth?
         public float value = 0.0f;
 
-        public virtual string GetShopDescription() => "This is definitely not a bug."; 
+        /// <summary>
+        /// Obtain a shop description.
+        /// </summary>
+        public virtual string GetShopDescription() => "No description."; 
 
         public virtual Item Copy() 
         { return MemberwiseClone() as Item; }

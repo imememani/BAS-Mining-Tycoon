@@ -7,9 +7,11 @@ namespace MiningTycoon
     /// </summary>
     public class Machine : MonoBehaviour
     {
+        public virtual int MachineID { get; set; }
+
         protected bool listenForTriggerEvents = true;
 
-        private void Awake() => Setup();
+        protected virtual void Awake() => Setup();
 
         protected virtual void Setup()
         { }

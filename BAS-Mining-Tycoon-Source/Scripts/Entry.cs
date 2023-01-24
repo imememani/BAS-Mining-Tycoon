@@ -61,6 +61,10 @@ namespace MiningTycoon
             // Initialize the logger.
             Logging.CreateLogger(Path.Combine(Location, "Logs"), "Mining Tycoon");
 
+            // Attach a console to this mod.
+            // DELETE THIS LINE WHEN YOU HAVE FINISHED DEBUGGING.
+            Logging.CreateConsole();
+
             // Create any directories required.
             if (!Directory.Exists(Path.Combine(Location, "Saves")))
             {
@@ -126,6 +130,7 @@ namespace MiningTycoon
             ItemDatabase.Clear();
             WorldObjects.Clear();
             OreVeins.Clear();
+            TycoonSaveHandler.Dispose();
             Logging.Log("Unloaded!");
 
             // Close the logger.

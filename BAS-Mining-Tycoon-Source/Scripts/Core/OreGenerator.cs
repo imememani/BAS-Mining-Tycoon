@@ -78,21 +78,31 @@ namespace MiningTycoon
                 // Spawn a vein.
                 Entry.SpawnItem(vein.id, origin, Quaternion.identity, go =>
                 {
+                    // Randomize the scale.
+                    float scale = Random.Range(0.8f, 1.2f);
+                    go.transform.localScale = Vector3.one * scale;
+
                     // Align to the surface.
                     if (Physics.Raycast(go.transform.position, Vector3.down, out RaycastHit hit, 200, ~0, QueryTriggerInteraction.Ignore))
                     {
                         go.transform.SetPositionAndRotation(hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal * 0.5f));
                     }
 
+                    // Randomize the rotation.
+                    go.transform.localEulerAngles = new Vector3(go.transform.localEulerAngles.x, Random.Range(-360, 360), go.transform.localEulerAngles.z);
+
                     // Load the vein up.
-                    go.AddComponent<OreVein>().Load(tier.ToString());
-                    go.transform.SetParent(zoneObject);
+                    OreVein ore = go.AddComponent<OreVein>();
+                    ore.Load(tier.ToString());
+
+                    // Add scale factor to health.
+                    ore.data.health += (Mathf.Abs((1.0f - scale)) * 100);
                 });
             }
         }
 
         /// <summary>
-        /// This will regenerate the worlds ore veins, this should onyl be called AFTER GenerateOreVeins.
+        /// This will regenerate the worlds ore veins, this should only be called AFTER GenerateOreVeins.
         /// </summary>
         public static void RegenerateWorldVeins()
         {

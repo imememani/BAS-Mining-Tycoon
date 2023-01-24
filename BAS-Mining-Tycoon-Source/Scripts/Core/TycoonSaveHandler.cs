@@ -1,7 +1,9 @@
 ﻿using BASLogger;
+using MiningTycoon.Scripts.Core;
 using Newtonsoft.Json;
 using System.IO;
 using ThunderRoad;
+using UnityEngine;
 
 namespace MiningTycoon
 {
@@ -20,7 +22,19 @@ namespace MiningTycoon
         /// </summary>
         private static string SaveLocation { get => Path.Combine(Entry.Location, "Saves", "player0.tycoon"); }
 
+        /// <summary>
+        /// Invoked when the player has loaded.
+        /// </summary>
         public static event PlayerLoadedEvent PlayerLoaded;
+
+        /// <summary>
+        /// Dispose of the current session.
+        /// </summary>
+        public static void Dispose()
+        {
+            PlayerLoaded = null;
+            Current = null;
+        }
 
         /// <summary>
         /// Save the current session.
@@ -51,20 +65,43 @@ namespace MiningTycoon
                 {
                     Logging.Log("Creating a new session!");
                     Current = new TycoonPlayer();
-                    return true;
+                }
+                else
+                {
+                    // Deserialize the data.
+                    Current = JsonConvert.DeserializeObject<TycoonPlayer>(File.ReadAllText(SaveLocation));
+
+                    // Load player position/velocity.
+                    Player.local.transform.position = Current.position.ToVector3;
+                    Player.local.locomotion.rb.velocity = Current.velocity.ToVector3;
                 }
 
-                // Deserialize the data.
-                Current = JsonConvert.DeserializeObject<TycoonPlayer>(File.ReadAllText(SaveLocation));
-
-                // Load the data.
-                Player.local.transform.position = Current.position.ToVector3;
-                Player.local.locomotion.rb.velocity = Current.velocity.ToVector3;
-
+                // Load world objects.
                 foreach (TycoonObjectData objectData in Current.worldObjects)
                 {
                     objectData.Load();
                     Logging.Log($"Loaded Object: {objectData.itemID}");
+                }
+
+                // Load plots.
+                int index = 0;
+                foreach (Transform plotObject in Entry.References[1].transforms)
+                {
+                    Plot plot = plotObject.gameObject.AddComponent<Plot>();
+                    plot.MachineID = index;
+
+                    // Try load the plot data.
+                    for (int i = 0; i < Current.plots.Count; i++)
+                    {
+                        if (Current.plots[i].machineID == plot.MachineID)
+                        {
+                            plot.Load(Current.plots[i]);
+                            break;
+                        }
+                    }
+
+                    Logging.Log($"PLOT LOADED: {plotObject}[{plot.MachineID}]");
+                    index++;
                 }
 
                 // Trigger events.
@@ -75,7 +112,7 @@ namespace MiningTycoon
             }
             catch (System.Exception e)
             {
-                Logging.Log("Unable to load previous session!");
+                Logging.LogError("Unable to load previous session!");
                 Logging.LogError(e);
 
                 Current = new TycoonPlayer();

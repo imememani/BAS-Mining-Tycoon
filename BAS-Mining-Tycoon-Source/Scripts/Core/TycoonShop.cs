@@ -66,7 +66,7 @@ namespace MiningTycoon
             itemCost = itemUI.transform.GetChild(6).GetComponent<Text>();
             purchase = itemUI.transform.GetChild(7).GetComponent<Button>();
 
-            purchase.onClick.AddListener(() => Purchase(currentlyDisplaying));
+            purchase.onClick.AddListener(() => Purchase(currentlyDisplaying.id, currentlyDisplaying.value));
             itemUI.transform.GetChild(8).GetComponent<Button>().onClick.AddListener(() => DisplayItem(null));
 
             // Collector machine.
@@ -106,11 +106,43 @@ namespace MiningTycoon
             if (currencyDisplay == null || TycoonSaveHandler.Current == null)
             { return; }
 
-            // Lazy way to display this stuff but I'll update it later, probably.
-            oreCollectionDisplay.text = TycoonSaveHandler.Current.oresCollected.ToString();
-
             TimeSpan time = TycoonSaveHandler.Current.GetRealtimePlaytime();
             playtimeDisplay.text = $"{(time.Days > 0 ? $"{time.Days}D " : "")}{(time.Hours > 0 ? $"{time.Hours}H " : "")}{(time.Minutes > 0 ? $"{time.Minutes}M " : "")}{(time.Seconds > 0 ? $"{time.Seconds}S " : "")}";
+        }
+
+        /// <summary>
+        /// Can the target item be purchased?
+        /// </summary>
+        public static bool CanPurchase(float value)
+        {
+            return TycoonSaveHandler.Current != null && TycoonSaveHandler.Current.currency >= value;
+        }
+
+        /// <summary>
+        /// Purchase an item.
+        /// </summary>
+        public static void Purchase(string id, float value)
+        {
+            // Deduct doubloons.
+            TycoonSaveHandler.Current.AddCurrency(-value);
+
+            // Spawn the item.
+            Entry.SpawnTycoonItem(id, local.spawnPoint.position, Quaternion.identity);
+
+            // Refresh the shop.
+            local.Refresh();
+
+            // Play sound.
+            // 0 - Purchase.
+            AudioSource.PlayClipAtPoint(local.shopSFX.sounds[0], Player.local.transform.position);
+
+            // Display floaty.
+            TycoonFloatyText.Create($"<color=white>{id}</color>\n     <color=red>-{value}</color>",
+                                        Player.local.head.transform.position + (Player.local.head.transform.forward * 0.65f),
+                                       Player.local.head.transform,
+                                           3.0f);
+
+            TycoonSaveHandler.Save();
         }
 
         /// <summary>
@@ -152,13 +184,13 @@ namespace MiningTycoon
             itemDescription.text = item.GetShopDescription();
 
             // Cost.
-            itemCost.text = $"<color={(CanPurchase(item) ? "white" : "red")}>{item.value}</color>";
+            itemCost.text = $"<color={(CanPurchase(item.value) ? "white" : "red")}>{item.value.FormatDoubloons()}</color>";
 
             // Icon.
             Entry.LoadObject<Texture2D>(item.iconAddress, icon => itemIcon.sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
 
             // Enable/Disable purchase.
-            purchase.interactable = CanPurchase(item);
+            purchase.interactable = CanPurchase(item.value);
         }
 
         /// <summary>
@@ -237,41 +269,6 @@ namespace MiningTycoon
         }
 
         /// <summary>
-        /// Can the target item be purchased?
-        /// </summary>
-        private bool CanPurchase(Item item)
-        {
-            return TycoonSaveHandler.Current.currency >= item.value;
-        }
-
-        /// <summary>
-        /// Purchase an item.
-        /// </summary>
-        private void Purchase(Item item)
-        {
-            // Deduct doubloons.
-            TycoonSaveHandler.Current.AddCurrency(-item.value);
-
-            // Spawn the item.
-            Entry.SpawnTycoonItem(item.id, spawnPoint.position, Quaternion.identity);
-
-            // Refresh the shop.
-            Refresh();
-
-            // Play sound.
-            // 0 - Purchase.
-            AudioSource.PlayClipAtPoint(shopSFX.sounds[0], Player.local.transform.position);
-
-            // Display floaty.
-            TycoonFloatyText.Create($"<color=white>{item.id}</color>\n     <color=red>-{item.value}</color>",
-                                        Player.local.head.transform.position + (Player.local.head.transform.forward * 0.5f),
-                                       Player.local.head.transform,
-                                           3.0f);
-
-            TycoonSaveHandler.Save();
-        }
-
-        /// <summary>
         /// Refresh the UI.
         /// </summary>
         private void Refresh()
@@ -295,13 +292,19 @@ namespace MiningTycoon
         private void HandlePlayerLoad(TycoonPlayer player)
         {
             // Update display.
-            currencyDisplay.text = $"{TycoonSaveHandler.Current.currency:0.00}";
+            currencyDisplay.text = $"{TycoonSaveHandler.Current.currency.FormatDoubloons()}";
+            oreCollectionDisplay.text = TycoonSaveHandler.Current.oresCollected.ToString();
 
             // Hook in to events.
+            TycoonSaveHandler.Current.oreChanged += amount =>
+            {
+                // Update display.
+                oreCollectionDisplay.text = TycoonSaveHandler.Current.oresCollected.ToString();
+            };
             TycoonSaveHandler.Current.currencyChanged += amount =>
             {
                 // Update display.
-                currencyDisplay.text = $"{TycoonSaveHandler.Current.currency:0.00}";
+                currencyDisplay.text = $"{TycoonSaveHandler.Current.currency.FormatDoubloons()}";
 
                 // Refresh shop if an item is on display.
                 if (currentlyDisplaying != null)
