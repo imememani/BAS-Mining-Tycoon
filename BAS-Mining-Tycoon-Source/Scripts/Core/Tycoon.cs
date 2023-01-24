@@ -170,6 +170,22 @@ namespace MiningTycoon
         }
 
         /// <summary>
+        /// Inject item data into the target item to make it functional without a json.
+        /// </summary>
+        public static void InjectItemData(this ThunderRoad.Item item, string id)
+        {
+            Catalog.LoadAssetAsync<GameObject>("MiningTycoon.BaseOre", go =>
+            {
+                // Obtain the reference.
+                ThunderRoad.Item thunderItem = go.GetComponent<ThunderRoad.Item>();
+
+                // Override the data.
+                item.data.displayName = id;
+
+            }, "Tycoon->InjectItemData");
+        }
+
+        /// <summary>
         /// Load the database.
         /// </summary>
         private static void LoadItems()

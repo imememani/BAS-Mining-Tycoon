@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 237193752445514641, guid: 5f3995fd3b03e2e4b8f0cd8b4034b523,
         type: 3}
       propertyPath: itemId
-      value: GoldOre
+      value: BaseOre
       objectReference: {fileID: 0}
     - target: {fileID: 4643215268016906557, guid: 5f3995fd3b03e2e4b8f0cd8b4034b523,
         type: 3}

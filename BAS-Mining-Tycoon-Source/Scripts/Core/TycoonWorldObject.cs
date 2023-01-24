@@ -22,6 +22,12 @@ namespace MiningTycoon
         {
             // Create a reference copy.
             data = (Tycoon.ItemDatabase[id]).Copy();
+
+            // Inject false data?
+            if (data is OreItem)
+            {
+                thunderItem.InjectItemData(id);
+            }
         }
 
         /// <summary>
