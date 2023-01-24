@@ -22,7 +22,7 @@ namespace MiningTycoon.Scripts.Core
                 TycoonFloatyText floaty = go.AddComponent<TycoonFloatyText>();
                 floaty.GetComponent<TextMesh>().text = text;
 
-                floaty.transform.position = position;
+                floaty.transform.position = position + new Vector3(0, Random.Range(-0.1f, 0.1f), 0);
                 floaty.lookTarget = lookTarget;
                 floaty.timer = Time.time + time;
 

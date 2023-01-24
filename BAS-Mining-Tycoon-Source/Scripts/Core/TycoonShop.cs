@@ -17,6 +17,9 @@ namespace MiningTycoon
 
         public AudioContainer shopSFX;
 
+        // Tick timer.
+        public Image tickTimer;
+
         // Generic anchors.
         private Transform categoryAnchor;
         private Transform itemAnchor;
@@ -57,6 +60,7 @@ namespace MiningTycoon
             currencyDisplay = transform.GetChild(4).GetChild(2).GetChild(4).GetComponent<Text>();
             oreCollectionDisplay = transform.GetChild(4).GetChild(2).GetChild(5).GetComponent<Text>();
             playtimeDisplay = transform.GetChild(4).GetChild(2).GetChild(6).GetComponent<Text>();
+            tickTimer = transform.GetChild(4).GetChild(2).GetChild(8).GetComponent<Image>();
 
             // Item panel.
             itemUI = transform.GetChild(2).GetChild(5).gameObject;
@@ -89,7 +93,7 @@ namespace MiningTycoon
         private void Start()
         {
             // Add all the pickaxes.
-            foreach (var entry in Entry.ItemDatabase)
+            foreach (var entry in Tycoon.ItemDatabase)
             {
                 if (entry.Value is ToolItem)
                 {
@@ -127,7 +131,8 @@ namespace MiningTycoon
             TycoonSaveHandler.Current.AddCurrency(-value);
 
             // Spawn the item.
-            Entry.SpawnTycoonItem(id, local.spawnPoint.position, Quaternion.identity);
+            if (Tycoon.IsTycoonItem(id))
+            { Tycoon.SpawnTycoonItem(id, local.spawnPoint.position, Quaternion.identity); }
 
             // Refresh the shop.
             local.Refresh();
@@ -137,7 +142,7 @@ namespace MiningTycoon
             AudioSource.PlayClipAtPoint(local.shopSFX.sounds[0], Player.local.transform.position);
 
             // Display floaty.
-            TycoonFloatyText.Create($"<color=white>{id}</color>\n     <color=red>-{value}</color>",
+            TycoonFloatyText.Create($"<color=white>{id}</color>\n     <color=red>-{value.FormatDoubloons()}</color>",
                                         Player.local.head.transform.position + (Player.local.head.transform.forward * 0.65f),
                                        Player.local.head.transform,
                                            3.0f);
@@ -187,7 +192,7 @@ namespace MiningTycoon
             itemCost.text = $"<color={(CanPurchase(item.value) ? "white" : "red")}>{item.value.FormatDoubloons()}</color>";
 
             // Icon.
-            Entry.LoadObject<Texture2D>(item.iconAddress, icon => itemIcon.sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
+            Tycoon.LoadObject<Texture2D>(item.iconAddress, icon => itemIcon.sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
 
             // Enable/Disable purchase.
             purchase.interactable = CanPurchase(item.value);
@@ -219,7 +224,7 @@ namespace MiningTycoon
                     go.transform.localRotation = Quaternion.identity;
                     go.transform.localScale = Vector3.one;
 
-                    Entry.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(0).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
+                    Tycoon.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(0).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
 
                     go.transform.GetChild(2).GetComponent<Text>().text = items[index].id;
                     go.GetComponent<Button>().onClick.AddListener(() => DisplayItem(items[index]));

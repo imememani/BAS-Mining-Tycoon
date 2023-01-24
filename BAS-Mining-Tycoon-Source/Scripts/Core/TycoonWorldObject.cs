@@ -5,21 +5,23 @@ namespace MiningTycoon
     public class TycoonWorldObject : MonoBehaviour, ITycoonDataHolder
     {
         public Item data;
+        public ThunderRoad.Item thunderItem;
 
         private void Awake()
         {
-            Entry.WorldObjects.Add(this);
+            thunderItem = GetComponent<ThunderRoad.Item>();
+            Tycoon.WorldObjects.Add(this);
         }
 
         private void OnDestroy()
         {
-            Entry.WorldObjects.Remove(this);
+            Tycoon.WorldObjects.Remove(this);
         }
 
         public void Load(string id)
         {
             // Create a reference copy.
-            data = (Entry.ItemDatabase[id]).Copy();
+            data = (Tycoon.ItemDatabase[id]).Copy();
         }
 
         /// <summary>

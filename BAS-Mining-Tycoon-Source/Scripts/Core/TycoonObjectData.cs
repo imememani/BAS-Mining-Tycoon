@@ -35,7 +35,7 @@ namespace MiningTycoon
         /// </summary>
         public void Load()
         {
-            Entry.SpawnTycoonItem(itemID, position.ToVector3, Quaternion.Euler(rotation.ToVector3), worldObject =>
+            Tycoon.SpawnTycoonItem(itemID, position.ToVector3, Quaternion.Euler(rotation.ToVector3), worldObject =>
             {
                 worldObject.data.health = itemHealth;
             });

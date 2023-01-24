@@ -21,12 +21,12 @@ namespace MiningTycoon
 
             deformable.CacheAllRendererMeshes();
 
-            Entry.OreVeins.Add(this);
+            Tycoon.OreVeins.Add(this);
         }
 
         private void OnDestroy()
         {
-            Entry.OreVeins.Remove(this);
+            Tycoon.OreVeins.Remove(this);
         }
 
         public override void Break()
@@ -60,13 +60,13 @@ namespace MiningTycoon
             }
 
             // Spawn ore.
-            if (data.ShouldDropOre(pickaxe.data.oreMultiplier)) Entry.SpawnTycoonItem(data.dropID, collisionData.contacts[0].point + Vector3.up, Quaternion.identity);
+            if (data.ShouldDropOre(pickaxe.data.oreMultiplier)) Tycoon.SpawnTycoonItem(data.dropID, collisionData.contacts[0].point + Vector3.up, Quaternion.identity);
         }
 
         public void Load(string id)
         {
             // Create a reference copy.
-            data = (VeinItem)(Entry.ItemDatabase[id]).Copy();
+            data = (VeinItem)(Tycoon.ItemDatabase[id]).Copy();
         }
     }
 }

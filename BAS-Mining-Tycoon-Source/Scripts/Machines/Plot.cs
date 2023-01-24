@@ -38,6 +38,9 @@ namespace MiningTycoon.Scripts.Core
             TycoonSaveHandler.PlayerLoaded -= HandlePlayerLoad;
             TycoonSaveHandler.PlayerLoaded += HandlePlayerLoad;
 
+            Tycoon.Tick -= Tick;
+            Tycoon.Tick += Tick;
+
             // Obtain UI cache.
             UICache();
 
@@ -48,7 +51,7 @@ namespace MiningTycoon.Scripts.Core
         /// <summary>
         /// Cache the UI.
         /// </summary>
-        private void UICache() 
+        private void UICache()
         {
             Transform uiRoot = transform.GetChild(4);
             plotStatsUI = uiRoot.GetChild(1).gameObject;
@@ -98,6 +101,8 @@ namespace MiningTycoon.Scripts.Core
             // Refresh the UI.
             RefreshPlotUI();
         }
+
+        private void Tick() => TycoonSaveHandler.Current.AddCurrency(data.doubloonsPerTick * data.doubloonMultiplier, true);
 
         /// <summary>
         /// Load this plot.
@@ -245,7 +250,7 @@ namespace MiningTycoon.Scripts.Core
         /// </summary>
         private void HandlePlayerLoad(TycoonPlayer player)
         {
-           player.currencyChanged += amount => RefreshPlotUI();
+            player.currencyChanged += amount => RefreshPlotUI();
         }
     }
 }

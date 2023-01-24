@@ -13,5 +13,14 @@
             // TODO: Add, a, ab, ac, ad, etc so we can get past the 2bn limit.
             return $"{value:0.00}";
         }
+
+
+        /// <summary>
+        /// Normalize a value between 0 and 1.
+        /// </summary>
+        public static float Normalize(this float value, float min, float max)
+        {
+            return (value - min) / (max - min);
+        }
     }
 }

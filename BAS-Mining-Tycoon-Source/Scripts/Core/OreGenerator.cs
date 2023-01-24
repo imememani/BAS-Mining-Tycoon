@@ -60,7 +60,7 @@ namespace MiningTycoon
             Bounds bounds = new Bounds(zoneObject.position, zoneObject.localScale);
 
             // Obtain a copy of the vein data.
-            VeinItem vein = (VeinItem)Entry.ItemDatabase[tier.ToString()];
+            VeinItem vein = (VeinItem)Tycoon.ItemDatabase[tier.ToString()];
 
             // Calculate a random amount.
             Vector2 map = new Vector2(vein.minSpawn, vein.maxSpawn);
@@ -76,7 +76,7 @@ namespace MiningTycoon
                 origin.y = 100.0f;
 
                 // Spawn a vein.
-                Entry.SpawnItem(vein.id, origin, Quaternion.identity, go =>
+                Tycoon.SpawnItem(vein.id, origin, Quaternion.identity, go =>
                 {
                     // Randomize the scale.
                     float scale = Random.Range(0.8f, 1.2f);
@@ -113,14 +113,14 @@ namespace MiningTycoon
             IEnumerator InternalProcess()
             {
                 // Despawn all veins.
-                for (int i = Entry.OreVeins.Count - 1; i >= 0; i--)
+                for (int i = Tycoon.OreVeins.Count - 1; i >= 0; i--)
                 {
                     // TODO: Have a fancy anim for this.
-                    Object.Destroy(Entry.OreVeins[i].gameObject);
+                    Object.Destroy(Tycoon.OreVeins[i].gameObject);
                     yield return null;
                 }
 
-                Entry.OreVeins.Clear();
+                Tycoon.OreVeins.Clear();
 
                 // Spawn new veins.
                 GenerateOreVeins();

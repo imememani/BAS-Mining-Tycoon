@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MiningTycoon.Scripts.Core;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using ThunderRoad;
@@ -51,10 +52,23 @@ namespace MiningTycoon
         /// <summary>
         /// Add or subtract currency.
         /// </summary>
-        public void AddCurrency(float amount)
+        public void AddCurrency(float amount, bool showFloaty = false)
         {
             currency = Mathf.Clamp(currency + amount, 0, long.MaxValue);
             currencyChanged?.Invoke(amount);
+
+            if (showFloaty)
+            {
+                // Play sound.
+                // 0 - Purchase.
+                AudioSource.PlayClipAtPoint(TycoonShop.local.shopSFX.sounds[0], Vector3.zero);
+
+                // Display floaty.
+                TycoonFloatyText.Create($"\n     <color={(amount < 0 ? "red" : "white")}>{(amount < 0 ? "-" : "")}{amount.FormatDoubloons()}</color>",
+                                            Player.local.head.transform.position + (Player.local.head.transform.forward * 0.65f),
+                                           Player.local.head.transform,
+                                               3.0f);
+            }
         }
 
         /// <summary>
@@ -91,10 +105,10 @@ namespace MiningTycoon
             }
 
             // Map all objects.
-            worldObjects = new TycoonObjectData[Entry.WorldObjects.Count];
-            for (int i = 0; i < Entry.WorldObjects.Count; i++)
+            worldObjects = new TycoonObjectData[Tycoon.WorldObjects.Count];
+            for (int i = 0; i < Tycoon.WorldObjects.Count; i++)
             {
-                worldObjects[i] = Entry.WorldObjects[i].Serialize();
+                worldObjects[i] = Tycoon.WorldObjects[i].Serialize();
             }
         }
     }

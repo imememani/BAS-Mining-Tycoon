@@ -22,7 +22,10 @@ namespace MiningTycoon
 
             // Collect the ore.
             // TODO: Fancy vanish animation.
-            Destroy(worldObject.gameObject);
+            if (worldObject.thunderItem != null)
+            { worldObject.thunderItem.Despawn(); }
+            else
+            { Destroy(worldObject.gameObject); }
 
             // Add currency.
             float value = item is OreItem ? item.value : item.value / 3;

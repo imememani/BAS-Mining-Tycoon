@@ -16,7 +16,7 @@ namespace MiningTycoon
         public void Load(string id)
         {
             // Create a reference copy.
-            data = (ToolItem)(Entry.ItemDatabase[id]).Copy();
+            data = (ToolItem)(Tycoon.ItemDatabase[id]).Copy();
 
             // Load sounds.
             Catalog.LoadAssetAsync<AudioContainer>("Tycoon.Audio.PickaxeSounds", container => sounds = container, "Pickaxe->Load");
