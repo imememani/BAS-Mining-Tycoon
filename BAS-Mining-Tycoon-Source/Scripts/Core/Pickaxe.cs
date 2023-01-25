@@ -24,6 +24,7 @@ namespace MiningTycoon
 
             // Bump the velocity.
             velocityMultiplier = 0.01f * data.damageMultiplier;
+            impactRadius = data.impactRadius;
         }
 
         /// <summary>

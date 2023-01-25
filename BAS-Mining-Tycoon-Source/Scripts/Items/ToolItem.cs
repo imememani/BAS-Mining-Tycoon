@@ -2,6 +2,9 @@
 {
     public class ToolItem : Item
     {
+        // How much ore to chip off.
+        public float impactRadius = 0.08f;
+
         // How much faster does the ore deplete?
         public float damageMultiplier = 1.0f;
 

@@ -79,12 +79,15 @@ namespace MiningTycoon
             // Clear any UI.
             Refresh();
 
+            // Set category.
+            currentCategory = "Items";
+
             // Add categories.
             AddCategory("Items");
             AddCategory("Misc");
-            currentCategory = "Items";
 
             // Event hooks.
+            TycoonSaveHandler.PlayerLoaded -= HandlePlayerLoad;
             TycoonSaveHandler.PlayerLoaded += HandlePlayerLoad;
 
             Logging.Log("Shop initialized.");
@@ -133,9 +136,6 @@ namespace MiningTycoon
             // Spawn the item.
             if (Tycoon.IsTycoonItem(id))
             { Tycoon.SpawnTycoonItem(id, local.spawnPoint.position, Quaternion.identity); }
-
-            // Refresh the shop.
-            local.Refresh();
 
             // Play sound.
             // 0 - Purchase.
@@ -197,15 +197,35 @@ namespace MiningTycoon
         }
 
         /// <summary>
-        /// Display a category and its items.
+        /// Clear all categories.
         /// </summary>
-        private void DisplayCategory(string id)
+        private void ClearCategories()
         {
-            // Remove any current children.
+            // Clear categories.
+            for (int i = categoryAnchor.childCount - 1; i >= 0; i--)
+            {
+                Destroy(categoryAnchor.GetChild(i).gameObject);
+            }
+        }
+
+        /// <summary>
+        /// Clear all items.
+        /// </summary>
+        private void ClearItems()
+        {
             for (int i = itemAnchor.childCount - 1; i >= 0; i--)
             {
                 Destroy(itemAnchor.GetChild(i).gameObject);
             }
+        }
+
+        /// <summary>
+        /// Display a category and its items.
+        /// </summary>
+        private void OpenCategory(string id)
+        {
+            Logging.Log($"Opening category: {id}");
+            ClearItems();
 
             currentCategory = id;
             List<Item> items = categories[currentCategory];
@@ -214,6 +234,7 @@ namespace MiningTycoon
             for (int i = 0; i < items.Count; i++)
             {
                 int index = i;
+                Logging.Log($"Creating shop item: {items[i].id}");
 
                 Catalog.InstantiateAsync(shopItemAddress, Vector3.zero, Quaternion.identity, null, go =>
                 {
@@ -235,14 +256,12 @@ namespace MiningTycoon
         /// </summary>
         private void DisplayCategories()
         {
-            // Remove any existing categories.
-            for (int i = categoryAnchor.childCount - 1; i >= 0; i--)
-            {
-                Destroy(categoryAnchor.GetChild(i).gameObject);
-            }
+            ClearCategories();
 
             foreach (var key in categories)
             {
+                Logging.Log($"Creating category: {key.Key}");
+
                 Catalog.InstantiateAsync(categoryAddress, Vector3.zero, Quaternion.identity, null, go =>
                 {
                     go.transform.SetParent(categoryAnchor);
@@ -254,7 +273,10 @@ namespace MiningTycoon
                     text.text = key.Key;
 
                     if (currentCategory == key.Key)
-                    { text.color = Color.green; }
+                    {
+                        text.color = Color.green;
+                        currentCategoryText = text;
+                    }
 
                     go.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() =>
                     {
@@ -263,7 +285,7 @@ namespace MiningTycoon
                         currentCategoryText = text;
                         text.color = Color.green;
 
-                        DisplayCategory(key.Key);
+                        OpenCategory(key.Key);
                     });
 
                     go.name = key.Key;
@@ -276,12 +298,16 @@ namespace MiningTycoon
         /// </summary>
         private void Refresh()
         {
+            // Clear UI.
+            ClearCategories();
+            ClearItems();
+
             // Re-render categories.
             DisplayCategories();
 
             // Open the current category.
             if (!string.IsNullOrEmpty(currentCategory))
-            { DisplayCategory(currentCategory); }
+            { OpenCategory(currentCategory); }
 
             // Display the current item or close.
             DisplayItem(currentlyDisplaying);

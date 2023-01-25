@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1404198458803304659, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34b9ba15330443c4ab9c1dadcbca33d6, type: 2}
     - target: {fileID: 1408362280412546379, guid: d85f7618fc3f856488da7cb9a27f7a77,
         type: 3}
       propertyPath: m_RootOrder
@@ -67,6 +72,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 2947817886482291629, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34b9ba15330443c4ab9c1dadcbca33d6, type: 2}
+    - target: {fileID: 5230449171123621379, guid: d85f7618fc3f856488da7cb9a27f7a77,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34b9ba15330443c4ab9c1dadcbca33d6, type: 2}
     - target: {fileID: 6217727304951463529, guid: d85f7618fc3f856488da7cb9a27f7a77,
         type: 3}
       propertyPath: m_Name

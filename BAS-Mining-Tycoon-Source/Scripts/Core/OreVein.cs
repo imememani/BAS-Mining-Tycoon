@@ -19,6 +19,7 @@ namespace MiningTycoon
             deformable.Deformed -= HandleDeformation;
             deformable.Deformed += HandleDeformation;
 
+            deformable.maxOffset = 100;
             deformable.CacheAllRendererMeshes();
 
             Tycoon.OreVeins.Add(this);
