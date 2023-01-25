@@ -16,13 +16,13 @@ namespace MiningTycoon
 
         private void Awake()
         {
-            deformable = GetComponent<Deformable>();
-            if (deformable == null) deformable = gameObject.AddComponent<Deformable>();
-
+            deformable = gameObject.AddComponent<Deformable>();
+            
             // Event hook.
             deformable.Deformed -= HandleDeformation;
             deformable.Deformed += HandleDeformation;
 
+            // Configure.
             deformable.maxOffset = 100;
             deformable.CacheAllRendererMeshes();
 
