@@ -24,6 +24,7 @@ namespace MiningTycoon.Scripts.Core
             {
                 TycoonFloatyText floaty = go.AddComponent<TycoonFloatyText>();
                 floaty.GetComponent<TextMesh>().text = text;
+                floaty.transform.GetChild(0).gameObject.SetActive(true);
 
                 floaty.transform.position = position + new Vector3(0, Random.Range(-0.1f, 0.1f), 0);
                 floaty.lookTarget = lookTarget;
@@ -42,8 +43,7 @@ namespace MiningTycoon.Scripts.Core
             {
                 TycoonFloatyText floaty = go.AddComponent<TycoonFloatyText>();
                 floaty.GetComponent<TextMesh>().text = text;
-                floaty.transform.GetChild(0).gameObject.SetActive(false);
-
+                
                 floaty.transform.position = position + new Vector3(0, Random.Range(-0.1f, 0.1f), 0);
                 floaty.lookTarget = lookTarget;
                 floaty.timer = Time.time + time;
@@ -77,8 +77,12 @@ namespace MiningTycoon.Scripts.Core
             {
                 col.a = i;
                 text.color = col;
+
                 yield return null;
             }
+
+            col.a = 0;
+            text.color = col;
 
             yield return null;
 
