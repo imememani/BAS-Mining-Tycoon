@@ -781,7 +781,7 @@ GameObject:
   m_Layer: 0
   m_Name: Copper-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2827,7 +2827,7 @@ GameObject:
   m_Layer: 0
   m_Name: Uranium-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3647,7 +3647,7 @@ GameObject:
   m_Layer: 0
   m_Name: Ruby-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3766,7 +3766,7 @@ GameObject:
   m_Layer: 0
   m_Name: Stone-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4006,19 +4006,19 @@ MonoBehaviour:
     transforms:
     - {fileID: 189674738}
     - {fileID: 1963121522}
+    - {fileID: 395216234}
     - {fileID: 694811943}
     - {fileID: 708891240}
     - {fileID: 1048278191}
     - {fileID: 1079549775}
+    - {fileID: 1302793067}
     - {fileID: 1324546548}
     - {fileID: 1366264756}
+    - {fileID: 1413882445}
+    - {fileID: 1511506583}
     - {fileID: 1587810091}
     - {fileID: 1745719282}
     - {fileID: 1818707265}
-    - {fileID: 1413882445}
-    - {fileID: 1302793067}
-    - {fileID: 395216234}
-    - {fileID: 1511506583}
   - name: Plots
     transforms:
     - {fileID: 984855443}
@@ -5031,7 +5031,7 @@ GameObject:
   m_Layer: 0
   m_Name: Gold-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5165,7 +5165,7 @@ GameObject:
   m_Layer: 0
   m_Name: Ruby-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5807,7 +5807,7 @@ GameObject:
   m_Layer: 0
   m_Name: Silver-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5851,7 +5851,7 @@ GameObject:
   m_Layer: 0
   m_Name: Iron-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6180,7 +6180,7 @@ GameObject:
   m_Layer: 0
   m_Name: Stone-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6224,7 +6224,7 @@ GameObject:
   m_Layer: 0
   m_Name: Tin-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6497,7 +6497,7 @@ GameObject:
   m_Layer: 0
   m_Name: Uranium-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6696,7 +6696,7 @@ GameObject:
   m_Layer: 0
   m_Name: Stone-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7320,7 +7320,7 @@ GameObject:
   m_Layer: 0
   m_Name: Iron-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7454,7 +7454,7 @@ GameObject:
   m_Layer: 0
   m_Name: Gold-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7806,7 +7806,7 @@ GameObject:
   m_Layer: 0
   m_Name: Copper-Zone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
