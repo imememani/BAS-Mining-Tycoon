@@ -66,6 +66,18 @@ namespace MiningTycoon
         {
             try
             {
+                // Strip the player.
+
+                // Items.
+                for (int i = Player.local.creature.container.contents.Count - 1; i >= 0; i--)
+                {
+                    if (Player.local.creature.container.contents[i].reference == ContainerData.Content.Reference.Item)
+                    { Player.local.creature.container.contents.RemoveAt(i); }
+                }
+
+                // Spells.
+                TycoonUtilities.RemoveMagic();
+
                 // Anything to load?
                 if (!File.Exists(SaveLocation))
                 {
@@ -80,6 +92,12 @@ namespace MiningTycoon
                     // Load player position/velocity.
                     Player.local.transform.position = Current.position.ToVector3;
                     Player.local.locomotion.rb.velocity = Current.velocity.ToVector3;
+
+                    // Display floaty.
+                    TycoonFloatyText.CreateFloatyText($"<color=green>Welcome Back!</color>",
+                                                        TycoonUtilities.GetFloatyTextPlayerAnchor(),
+                                                        Player.local.head.transform,
+                                                            2.0f);
                 }
 
                 // Load world objects.

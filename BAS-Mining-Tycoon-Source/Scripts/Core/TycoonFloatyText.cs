@@ -1,4 +1,5 @@
 ﻿using BASLogger;
+using System.Collections;
 using ThunderRoad;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace MiningTycoon.Scripts.Core
     {
         private Transform lookTarget;
         private float timer;
+
+        private bool despawning = false;
 
         /// <summary>
         /// Create a new floaty!
@@ -51,16 +54,37 @@ namespace MiningTycoon.Scripts.Core
 
         private void Update()
         {
-            if (Time.time > timer)
+            if (Time.time > timer && !despawning)
             {
-                // TODO: Fancy dissolve on the floaty text?
-                Destroy(gameObject);
-                return;
+                despawning = true;
+                StartCoroutine(Despawn());
             }
 
             // Move up.
             transform.position = Vector3.Slerp(transform.position, transform.position + new Vector3(0, 0.1f, 0), Time.deltaTime * 2);
             transform.LookAt(lookTarget);
+        }
+
+        /// <summary>
+        /// Slowly fade out the text before destroying it.
+        /// </summary>
+        private IEnumerator Despawn()
+        {
+            TextMesh text = GetComponent<TextMesh>();
+            Color col = text.color;
+
+            for (float i = col.a; i >= 0; i -= Time.deltaTime)
+            {
+                col.a = i;
+                text.color = col;
+                yield return null;
+            }
+
+            yield return null;
+
+            Destroy(gameObject);
+
+            yield break;
         }
     }
 }

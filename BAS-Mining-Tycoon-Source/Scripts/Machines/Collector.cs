@@ -7,9 +7,12 @@ namespace MiningTycoon
 {
     public class Collector : Machine
     {
+        private ParticleSystem doubloonEffect;
+
         protected override void Setup()
         {
             listenForTriggerEvents = true;
+            doubloonEffect = transform.parent.GetChild(1).GetComponent<ParticleSystem>();
 
             Logging.Log("Collector initialized!");
         }
@@ -21,11 +24,14 @@ namespace MiningTycoon
             { return; }
 
             // Collect the ore.
-            // TODO: Some kind of despawn animation or particles when selling tools/ore.
             if (worldObject.thunderItem != null)
             { worldObject.thunderItem.Despawn(); }
             else
             { Destroy(worldObject.gameObject); }
+
+            // Play effect.
+            if (!doubloonEffect.isPlaying)
+            { doubloonEffect.Play(); }
 
             // Add currency.
             double value = item is OreItem ? item.value : item.value / 3;
@@ -35,8 +41,8 @@ namespace MiningTycoon
 
             // Display floaty.
             TycoonFloatyText.CreateFloatyCurrency($"<color=white>{item.id}</color>\n      <color=yellow>{value.FormatDoubloons()}</color>",
-                                                TycoonUtilities.GetFloatyTextPlayerAnchor(), 
-                                                Player.local.head.transform, 
+                                                TycoonUtilities.GetFloatyTextPlayerAnchor(),
+                                                Player.local.head.transform,
                                                     3.0f);
 
             Logging.Log($"Collected '{value}' doubloons from '{item.id}'!");

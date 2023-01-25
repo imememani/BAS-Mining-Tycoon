@@ -1,5 +1,6 @@
 ﻿using CarnageReborn;
 using MiningTycoon.Scripts.Core;
+using System.Collections;
 using ThunderRoad;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace MiningTycoon
         private Deformable deformable;
 
         private float lastMineTime;
+        private bool isDespawning = false;
 
         private void Awake()
         {
@@ -34,8 +36,44 @@ namespace MiningTycoon
 
         public override void Break()
         {
-            // TODO: Have a fancy smash animation play or something.
-            gameObject.SetActive(false);
+            if (isDespawning)
+            { return; }
+
+            // Create floaty.
+            TycoonFloatyText.CreateFloatyText($"<color=red>Vein Depleted!</color>",
+                               TycoonUtilities.GetFloatyTextPlayerAnchor(),
+                             Player.local.head.transform,
+                                 1.5f);
+
+            // Despawn.
+            Despawn();
+        }
+
+        /// <summary>
+        /// Despawn this ore, plays an animation first.
+        /// </summary>
+        public void Despawn()
+        {
+            isDespawning = true;
+            StartCoroutine(Process());
+
+            IEnumerator Process()
+            {
+                float currentY = transform.position.y;
+                float targetY = currentY - 10;
+
+                while (currentY != targetY)
+                {
+                    currentY = Mathf.MoveTowards(currentY, targetY, Time.deltaTime);
+                    transform.position = new Vector3(transform.position.x, currentY, transform.position.z);
+
+                    yield return null;
+                }
+
+                Destroy(gameObject);
+
+                yield break;
+            }
         }
 
         /// <summary>
@@ -44,7 +82,7 @@ namespace MiningTycoon
         private void HandleDeformation(Deformer deformer, Mesh mesh, Collision collisionData)
         {
             // Is the event dealt by a pickaxe?
-            if (Time.time < lastMineTime)
+            if (Time.time < lastMineTime || isDespawning)
             { return; }
             if (!(deformer is Pickaxe pickaxe))
             {

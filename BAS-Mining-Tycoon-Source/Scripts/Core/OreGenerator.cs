@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Threading.Tasks;
 using ThunderRoad;
 using UnityEngine;
 
@@ -20,6 +21,9 @@ namespace MiningTycoon
             // Uses an IEnumerator to help divide the load across frames.
             IEnumerator InternalProcess()
             {
+                // Wait for the end of the frame.
+                yield return Yielders.EndOfFrame;
+
                 foreach (var reference in Entry.References)
                 {
                     // Is this a zone?
@@ -76,16 +80,21 @@ namespace MiningTycoon
                 origin.y = 100.0f;
 
                 // Spawn a vein.
-                Tycoon.SpawnItem(vein.id, origin, Quaternion.identity, go =>
+                Tycoon.SpawnItem(vein.id, origin, Quaternion.identity, async go =>
                 {
                     // Randomize the scale.
                     float scale = Random.Range(0.8f, 1.2f);
                     go.transform.localScale = Vector3.one * scale;
 
                     // Align to the surface.
-                    if (Physics.Raycast(go.transform.position, Vector3.down, out RaycastHit hit, 200, ~0, QueryTriggerInteraction.Ignore))
+                    while (go.transform.position.y >= 100.0f)
                     {
-                        go.transform.SetPositionAndRotation(hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal * 0.5f));
+                        if (Physics.Raycast(go.transform.position - new Vector3(0, 10, 0), Vector3.down, out RaycastHit hit, 200, ~0, QueryTriggerInteraction.Ignore))
+                        {
+                            go.transform.SetPositionAndRotation(hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal * 0.5f));
+                        }
+
+                        await Task.Delay(5);
                     }
 
                     // Randomize the rotation.
@@ -115,8 +124,7 @@ namespace MiningTycoon
                 // Despawn all veins.
                 for (int i = Tycoon.OreVeins.Count - 1; i >= 0; i--)
                 {
-                    // TODO: Have a fancy anim for despawning ore veins.
-                    Object.Destroy(Tycoon.OreVeins[i].gameObject);
+                    Tycoon.OreVeins[i].Despawn();
                     yield return null;
                 }
 

@@ -70,5 +70,45 @@ namespace MiningTycoon
         {
             return (value - min) / (max - min);
         }
+
+        /// <summary>
+        /// Removes the players magic.
+        /// 
+        /// Thanks Wully.
+        /// https://github.com/Wully616/MoreModes/blob/master/Scripts/Modifier/NoMagic.cs
+        /// </summary>
+        public static void RemoveMagic()
+        {
+            SpellCaster manaCasterLeft = Player.currentCreature.mana.casterLeft;
+            SpellCaster manaCasterRight = Player.currentCreature.mana.casterRight;
+
+            manaCasterLeft.UnloadSpell();
+            manaCasterRight.UnloadSpell();
+
+            manaCasterLeft.DisallowCasting("TycoonUtility");
+            manaCasterLeft.DisableSpellWheel("TycoonUtility");
+            manaCasterRight.DisallowCasting("TycoonUtility");
+            manaCasterRight.DisableSpellWheel("TycoonUtility");
+
+
+            //There is a bug in the base game for removing SpellPowerInstances and Telekinesis so we need to do those manually
+            Player.currentCreature.container.RemoveContent("SpellSlowTime");
+            for (int i = Player.currentCreature.mana.spellPowerInstances.Count - 1; i >= 0; i--)
+            {
+                if (Player.currentCreature.mana.spellPowerInstances[i].id == "SpellSlowTime")
+                {
+                    Player.currentCreature.mana.spellPowerInstances[i].Unload();
+                    Player.currentCreature.mana.spellPowerInstances.RemoveAt(i);
+                }
+            }
+
+            /* Keep telek
+            Player.currentCreature.container.RemoveContent("SpellTelekinesis");
+            manaCasterLeft.telekinesis.Unload();
+            manaCasterLeft.telekinesis = null;
+            manaCasterRight.telekinesis.Unload();
+            manaCasterRight.telekinesis = null;
+            */
+        }
     }
 }
