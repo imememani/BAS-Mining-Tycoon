@@ -157,6 +157,36 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
+  - m_GUID: 766138d09e3e68346823010c58bc94c7
+    m_Address: Tycoon.UraniumOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: b53149890324b58458437161cdfc28cf
+    m_Address: Tycoon.UraniumVein
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 30db88a912b7d284098ef9c5728bfb72
+    m_Address: Tycoon.TinVein
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 20aca8c1c0576a4479f6c6fb8646b36c
+    m_Address: Tycoon.TinOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 60e3c8cad50cebb4ca121e06cd8a7ecb
+    m_Address: Tycoon.SilverVein
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: db27a739092c7c54f828e79dd1d0f84c
+    m_Address: Tycoon.SilverOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b14c4d9d8b63f3247be008fe8b53d3ae, type: 2}
   m_SchemaSet:

@@ -1,4 +1,6 @@
 ﻿using CarnageReborn;
+using MiningTycoon.Scripts.Core;
+using ThunderRoad;
 using UnityEngine;
 
 namespace MiningTycoon
@@ -42,8 +44,16 @@ namespace MiningTycoon
         private void HandleDeformation(Deformer deformer, Mesh mesh, Collision collisionData)
         {
             // Is the event dealt by a pickaxe?
-            if (Time.time < lastMineTime || !(deformer is Pickaxe pickaxe))
+            if (Time.time < lastMineTime)
             { return; }
+            if (!(deformer is Pickaxe pickaxe))
+            {
+                TycoonFloatyText.CreateFloatyText($"<color=red>Pickaxe required!</color>",
+                                               TycoonUtilities.GetFloatyTextPlayerAnchor(),
+                                             Player.local.head.transform,
+                                                 1.0f);
+                return;
+            }
 
             // Prevents mine spam.
             lastMineTime = Time.time + 0.25f;

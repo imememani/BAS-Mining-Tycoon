@@ -20,6 +20,12 @@ public class OreZone : MonoBehaviour
             case Tier.Gold: ColorUtility.TryParseHtmlString("#dec50b", out Color gold); return gold;
 
             case Tier.Stone: ColorUtility.TryParseHtmlString("#242323", out Color stone); return stone;
+
+            case Tier.Tin: ColorUtility.TryParseHtmlString("#7d807e", out Color tin); return tin;
+
+            case Tier.Silver: ColorUtility.TryParseHtmlString("#c9c9c9", out Color silver); return silver;
+
+            case Tier.Uranium: ColorUtility.TryParseHtmlString("#00a12b", out Color uranium); return uranium;
         }
 
         return Color.black;

@@ -58,8 +58,17 @@ namespace MiningTycoon
         {
             OreVein vein = collision.collider.GetComponentInParent<OreVein>();
 
+            bool canBeMined = vein.data.CanBeMinedBy(data.tier);
+            if (!canBeMined)
+            {
+                TycoonFloatyText.CreateFloatyText($"<color=red>Stronger Pickaxe required!</color>",
+                                   TycoonUtilities.GetFloatyTextPlayerAnchor(),
+                                 Player.local.head.transform,
+                                     1.5f);
+            }
+
             // Velocity has been bumped to 2.0 so the player really needs a hard swing.
-            return base.ShouldDeformTarget(collision, target) && collision.relativeVelocity.magnitude >= 5.0f && vein != null && vein.data.CanBeMinedBy(data.tier);
+            return base.ShouldDeformTarget(collision, target) && collision.relativeVelocity.magnitude >= 5.0f && vein != null && canBeMined;
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using MiningTycoon.Scripts.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ThunderRoad;
 using UnityEngine;
 using UnityEngine.UI;
@@ -228,10 +229,12 @@ namespace MiningTycoon
             ClearItems();
 
             currentCategory = id;
-            List<Item> items = categories[currentCategory];
+           
+            // Order items by cost.
+            Item[] items = categories[currentCategory].OrderBy(item => item.value).ToArray();
 
             // Spawn new items.
-            for (int i = 0; i < items.Count; i++)
+            for (int i = 0; i < items.Length; i++)
             {
                 int index = i;
                 Logging.Log($"Creating shop item: {items[i].id}");
