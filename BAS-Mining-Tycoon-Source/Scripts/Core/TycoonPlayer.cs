@@ -14,7 +14,7 @@ namespace MiningTycoon
     public class TycoonPlayer
     {
         // Aka doubloons.
-        public float currency = 100.0f;
+        public double doubloons = 100.0d;
 
         // How many ores have been processed.
         public long oresCollected = 0;
@@ -36,7 +36,7 @@ namespace MiningTycoon
 
         // Invoked when change has happened.
         [JsonIgnore]
-        public Action<float> currencyChanged;
+        public Action<double> currencyChanged;
         [JsonIgnore]
         public Action<int> oreChanged;
 
@@ -52,9 +52,9 @@ namespace MiningTycoon
         /// <summary>
         /// Add or subtract currency.
         /// </summary>
-        public void AddCurrency(float amount, bool showFloaty = false)
+        public void AddCurrency(double amount, bool showFloaty = false)
         {
-            currency = Mathf.Clamp(currency + amount, 0, long.MaxValue);
+            doubloons += amount;
             currencyChanged?.Invoke(amount);
 
             if (showFloaty)

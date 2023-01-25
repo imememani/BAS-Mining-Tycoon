@@ -22,7 +22,7 @@ namespace MiningTycoon
         public float health = 100.0f;
 
         // How much is this worth?
-        public float value = 0.0f;
+        public double value = 0.0d;
 
         /// <summary>
         /// Obtain a shop description.

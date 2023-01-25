@@ -6,12 +6,13 @@
     [System.Serializable]
     public class PlotData
     {
-        public int machineID; // Which plot does this data belong to?
+        // Which plot does this data belong to?
+        public int machineID;
 
         // How many doubloons this earns per tick.
-        public float doubloonsPerTick = 5.0f;
+        public double doubloonsPerTick = 5.0f;
 
         // Doubloon multiplier per tick.
-        public float doubloonMultiplier = 1.0f;
+        public double doubloonMultiplier = 1.0f;
     }
 }

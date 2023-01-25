@@ -7,9 +7,9 @@ namespace MiningTycoon
         public string moduleName;
         public string moduleDisplay;
 
-        public float currentValue;
-        public float cost;
-        public float incrementBy;
+        public double currentValue;
+        public double cost;
+        public double incrementBy;
 
         public Action onPurchase;
     }

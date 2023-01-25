@@ -11,13 +11,14 @@ namespace MiningTycoon.Scripts.Core
     /// </summary>
     public class Plot : Machine
     {
-        public float plotCost = 5000.0f; // 5K Doubloons.
+        public double plotCost = 5000.0d; // 5K Doubloons.
         public PlotData data;
 
         // Blocker UI to purchase the plot.
         private GameObject plotStatsUI;
         private GameObject plotPurchaseUI;
         private GameObject plotUpgradePurchaseUI;
+        private GameObject secondTerminal;
 
         // Cache.
         private Transform moduleAnchor;
@@ -35,8 +36,7 @@ namespace MiningTycoon.Scripts.Core
         protected override void Awake()
         {
             // Event Hooks.
-            TycoonSaveHandler.PlayerLoaded -= HandlePlayerLoad;
-            TycoonSaveHandler.PlayerLoaded += HandlePlayerLoad;
+            TycoonSaveHandler.Current.currencyChanged += amount => RefreshPlotUI();
 
             Tycoon.Tick -= Tick;
             Tycoon.Tick += Tick;
@@ -53,17 +53,19 @@ namespace MiningTycoon.Scripts.Core
         /// </summary>
         private void UICache()
         {
-            Transform uiRoot = transform.GetChild(4);
-            plotStatsUI = uiRoot.GetChild(1).gameObject;
+            Transform uiRoot = transform.GetChild(2);
+            secondTerminal = transform.GetChild(1).GetChild(1).gameObject;
+            secondTerminal.SetActive(false);
+            plotStatsUI = uiRoot.GetChild(0).gameObject;
             moduleAnchor = plotStatsUI.transform;
-            plotPurchaseUI = uiRoot.GetChild(2).gameObject;
-            plotUpgradePurchaseUI = uiRoot.GetChild(3).gameObject;
+            plotPurchaseUI = uiRoot.GetChild(1).gameObject;
+            plotUpgradePurchaseUI = uiRoot.GetChild(2).gameObject;
             plotUpgradePurchaseUI.SetActive(false);
-            purchasePlot = plotPurchaseUI.transform.GetChild(3).GetComponent<Button>();
-            plotPurchaseCost = plotPurchaseUI.transform.GetChild(2).GetComponent<Text>();
-            purchaseModuleName = plotUpgradePurchaseUI.transform.GetChild(2).GetComponent<Text>();
-            purchaseCost = plotUpgradePurchaseUI.transform.GetChild(4).GetComponent<Text>();
-            purchaseModule = plotUpgradePurchaseUI.transform.GetChild(5).GetComponent<Button>();
+            purchasePlot = plotPurchaseUI.transform.GetChild(2).GetComponent<Button>();
+            plotPurchaseCost = plotPurchaseUI.transform.GetChild(1).GetChild(1).GetComponent<Text>();
+            purchaseModuleName = plotUpgradePurchaseUI.transform.GetChild(0).GetComponent<Text>();
+            purchaseCost = plotUpgradePurchaseUI.transform.GetChild(1).GetChild(1).GetComponent<Text>();
+            purchaseModule = plotUpgradePurchaseUI.transform.GetChild(2).GetComponent<Button>();
         }
 
         protected override void Setup()
@@ -85,7 +87,7 @@ namespace MiningTycoon.Scripts.Core
             plotPurchaseUI.SetActive(false);
 
             // Cancel upgrade purchase.
-            plotUpgradePurchaseUI.transform.GetChild(6).GetComponent<Button>().onClick.AddListener(() => DisplayUpgradePurchase(null));
+            plotUpgradePurchaseUI.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(() => DisplayUpgradePurchase(null));
 
             // Handle purchase event.
             purchaseModule.onClick.AddListener(TryPurchaseModule);
@@ -102,7 +104,11 @@ namespace MiningTycoon.Scripts.Core
             RefreshPlotUI();
         }
 
-        private void Tick() => TycoonSaveHandler.Current.AddCurrency(data.doubloonsPerTick * data.doubloonMultiplier, true);
+        private void Tick()
+        {
+            if (data != null)
+            { TycoonSaveHandler.Current.AddCurrency(data.doubloonsPerTick * data.doubloonMultiplier, true); }
+        }
 
         /// <summary>
         /// Load this plot.
@@ -118,7 +124,7 @@ namespace MiningTycoon.Scripts.Core
         /// <summary>
         /// Add an upgrade module.
         /// </summary>
-        public void AddModule(string moduleName, string display, float currentValue, float cost, float incrementBy, Action<float> onValueChanged)
+        public void AddModule(string moduleName, string display, double currentValue, double cost, double incrementBy, Action<double> onValueChanged)
         {
             Catalog.InstantiateAsync("Tycoon.UI.UpgradeModule", Vector3.zero, Quaternion.identity, null, go =>
             {
@@ -167,7 +173,7 @@ namespace MiningTycoon.Scripts.Core
         /// <summary>
         /// Refresh the terminal ui.
         /// </summary>
-        private void RefreshPlotUI()
+        public void RefreshPlotUI()
         {
             // This plot has not been purchased.
             if (data == null)
@@ -192,6 +198,7 @@ namespace MiningTycoon.Scripts.Core
         {
             currentlyDisplaying = module;
             plotUpgradePurchaseUI?.SetActive(module != null);
+            secondTerminal?.SetActive(module != null);
 
             if (module == null)
             { return; }
@@ -243,14 +250,6 @@ namespace MiningTycoon.Scripts.Core
 
             // Save the current session.
             TycoonSaveHandler.Save();
-        }
-
-        /// <summary>
-        /// Handle the player load event.
-        /// </summary>
-        private void HandlePlayerLoad(TycoonPlayer player)
-        {
-            player.currencyChanged += amount => RefreshPlotUI();
         }
     }
 }

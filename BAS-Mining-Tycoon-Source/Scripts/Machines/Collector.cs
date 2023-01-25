@@ -28,7 +28,7 @@ namespace MiningTycoon
             { Destroy(worldObject.gameObject); }
 
             // Add currency.
-            float value = item is OreItem ? item.value : item.value / 3;
+            double value = item is OreItem ? item.value : item.value / 3;
             TycoonSaveHandler.Current.AddCurrency(value);
             TycoonSaveHandler.Current.AddOre(1);
             AudioSource.PlayClipAtPoint(TycoonShop.local.shopSFX.sounds[1], Player.local.transform.position);

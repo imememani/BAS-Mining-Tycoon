@@ -106,6 +106,7 @@ namespace MiningTycoon
                         }
                     }
 
+                    plot.RefreshPlotUI();
                     Logging.Log($"PLOT LOADED: {plotObject}[{plot.MachineID}]");
                     index++;
                 }

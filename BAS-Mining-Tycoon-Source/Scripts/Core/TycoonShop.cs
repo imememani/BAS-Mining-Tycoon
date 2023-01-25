@@ -52,29 +52,29 @@ namespace MiningTycoon
             Catalog.LoadAssetAsync<AudioContainer>("Tycoon.Audio.StoreSounds", container => shopSFX = container, "Shop->Awake");
 
             // Locate the anchors.
-            categoryAnchor = transform.GetChild(2).GetChild(1);
+            categoryAnchor = transform.GetChild(2).GetChild(2);
             itemAnchor = transform.GetChild(2).GetChild(3);
-            spawnPoint = transform.GetChild(2).GetChild(4);
+            spawnPoint = transform.GetChild(2).GetChild(5);
 
             // Locate ui stats.
-            currencyDisplay = transform.GetChild(4).GetChild(2).GetChild(4).GetComponent<Text>();
-            oreCollectionDisplay = transform.GetChild(4).GetChild(2).GetChild(5).GetComponent<Text>();
-            playtimeDisplay = transform.GetChild(4).GetChild(2).GetChild(6).GetComponent<Text>();
-            tickTimer = transform.GetChild(4).GetChild(2).GetChild(8).GetComponent<Image>();
+            currencyDisplay = transform.GetChild(3).GetChild(0).GetChild(1).GetComponent<Text>();
+            oreCollectionDisplay = transform.GetChild(3).GetChild(1).GetChild(1).GetComponent<Text>();
+            playtimeDisplay = transform.GetChild(3).GetChild(2).GetChild(1).GetComponent<Text>();
+            tickTimer = transform.GetChild(3).GetChild(4).GetComponent<Image>();
 
             // Item panel.
-            itemUI = transform.GetChild(2).GetChild(5).gameObject;
+            itemUI = transform.GetChild(2).GetChild(4).gameObject;
             itemIcon = itemUI.transform.GetChild(2).GetComponent<Image>();
-            itemName = itemUI.transform.GetChild(4).GetComponent<Text>();
-            itemDescription = itemUI.transform.GetChild(5).GetComponent<Text>();
-            itemCost = itemUI.transform.GetChild(6).GetComponent<Text>();
-            purchase = itemUI.transform.GetChild(7).GetComponent<Button>();
+            itemName = itemUI.transform.GetChild(3).GetComponent<Text>();
+            itemDescription = itemUI.transform.GetChild(4).GetComponent<Text>();
+            itemCost = itemUI.transform.GetChild(5).GetChild(1).GetComponent<Text>();
+            purchase = itemUI.transform.GetChild(6).GetComponent<Button>();
 
             purchase.onClick.AddListener(() => Purchase(currentlyDisplaying.id, currentlyDisplaying.value));
-            itemUI.transform.GetChild(8).GetComponent<Button>().onClick.AddListener(() => DisplayItem(null));
+            itemUI.transform.GetChild(7).GetComponent<Button>().onClick.AddListener(() => DisplayItem(null));
 
             // Collector machine.
-            transform.GetChild(5).GetChild(0).gameObject.AddComponent<Collector>();
+            transform.GetChild(4).GetChild(0).gameObject.AddComponent<Collector>();
 
             // Clear any UI.
             Refresh();
@@ -120,15 +120,15 @@ namespace MiningTycoon
         /// <summary>
         /// Can the target item be purchased?
         /// </summary>
-        public static bool CanPurchase(float value)
+        public static bool CanPurchase(double value)
         {
-            return TycoonSaveHandler.Current != null && TycoonSaveHandler.Current.currency >= value;
+            return TycoonSaveHandler.Current != null && TycoonSaveHandler.Current.doubloons >= value;
         }
 
         /// <summary>
         /// Purchase an item.
         /// </summary>
-        public static void Purchase(string id, float value)
+        public static void Purchase(string id, double value)
         {
             // Deduct doubloons.
             TycoonSaveHandler.Current.AddCurrency(-value);
@@ -243,9 +243,16 @@ namespace MiningTycoon
                     go.transform.localRotation = Quaternion.identity;
                     go.transform.localScale = Vector3.one;
 
-                    Tycoon.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(0).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
+                    // Icon.
+                    Tycoon.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(2).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
 
-                    go.transform.GetChild(2).GetComponent<Text>().text = items[index].id;
+                    // Title.
+                    go.transform.GetChild(4).GetComponent<Text>().text = items[index].id;
+                    
+                    // Cost.
+                    go.transform.GetChild(3).GetChild(1).GetComponent<Text>().text = items[index].value.FormatDoubloons();
+                    
+                    // Display.
                     go.GetComponent<Button>().onClick.AddListener(() => DisplayItem(items[index]));
                 }, "Shop->ShopItem");
             }
@@ -321,7 +328,7 @@ namespace MiningTycoon
         private void HandlePlayerLoad(TycoonPlayer player)
         {
             // Update display.
-            currencyDisplay.text = $"{TycoonSaveHandler.Current.currency.FormatDoubloons()}";
+            currencyDisplay.text = $"{TycoonSaveHandler.Current.doubloons.FormatDoubloons()}";
             oreCollectionDisplay.text = TycoonSaveHandler.Current.oresCollected.ToString();
 
             // Hook in to events.
@@ -333,7 +340,7 @@ namespace MiningTycoon
             TycoonSaveHandler.Current.currencyChanged += amount =>
             {
                 // Update display.
-                currencyDisplay.text = $"{TycoonSaveHandler.Current.currency.FormatDoubloons()}";
+                currencyDisplay.text = $"{TycoonSaveHandler.Current.doubloons.FormatDoubloons()}";
 
                 // Refresh shop if an item is on display.
                 if (currentlyDisplaying != null)
