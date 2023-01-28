@@ -23,6 +23,11 @@ namespace MiningTycoon
             if (!(collider.GetComponentInParent<TycoonWorldObject>() is TycoonWorldObject worldObject) || !(worldObject.data is Item item))
             { return; }
 
+            if (worldObject.creatureData != null)
+            { worldObject.GetComponent<Creature>().Despawn(); }
+            else
+            { Destroy(worldObject); }
+
             // Collect the ore.
             if (worldObject.thunderItem != null)
             { worldObject.thunderItem.Despawn(); }

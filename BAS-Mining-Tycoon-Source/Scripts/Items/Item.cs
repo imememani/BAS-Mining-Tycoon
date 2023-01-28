@@ -9,6 +9,9 @@ namespace MiningTycoon
         /// </summary>
         public string id;
 
+        // If empty will use ID.
+        public string displayName;
+
         // What item tier is this?
         public int tier = 0;
 

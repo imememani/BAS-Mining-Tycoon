@@ -45,6 +45,9 @@ namespace MiningTycoon
             if (File.Exists(SaveLocation))
             { File.Delete(SaveLocation); }
 
+            // Reset save data.
+            Current = new TycoonPlayer();
+
             // Reload the tycoon.
             GameManager.LoadLevel(Entry.TycoonLevelID);
         }

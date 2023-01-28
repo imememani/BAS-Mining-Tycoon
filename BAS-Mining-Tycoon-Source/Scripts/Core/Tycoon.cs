@@ -40,7 +40,7 @@ namespace MiningTycoon
 
         private static float timer;
         private static int worldRegenTickCounter;
-        
+
         /// <summary>
         /// Initialize the tycoon.
         /// </summary>
@@ -152,6 +152,23 @@ namespace MiningTycoon
         /// Spawn a serialized tycoon item.
         /// </summary>
         public static void SpawnTycoonItem(string id, Vector3 position, Quaternion rotation, Action<TycoonWorldObject> onItemSpawned = null) => SpawnItem(id, position, rotation, go => onItemSpawned?.Invoke(go.GetComponent<TycoonWorldObject>()), true);
+
+        /// <summary>
+        /// Spawn a creature by id.
+        /// </summary>
+        public static void SpawnTycoonCreature(string id, Vector3 position, float rotationY, Action<TycoonWorldObject> onItemSpawned = null)
+        {
+            CreatureData data = Catalog.GetData<CreatureData>(id);
+            Logging.Log($"Spawning creature '{id}'!");
+
+            data.SpawnAsync(position, rotationY, null, false, callback: creature =>
+            {
+                TycoonWorldObject worldObject = creature.gameObject.AddComponent<TycoonWorldObject>();
+                worldObject.LoadCreature(creature.data);
+
+                onItemSpawned?.Invoke(worldObject);
+            });
+        }
 
         /// <summary>
         /// Spawn a non-serialized tycoon item.

@@ -92,7 +92,7 @@ namespace MiningTycoon
         /// </summary>
         public static IEnumerator GenerateVeinsFromPopulationMap(this Vector3[] map, string tier)
         {
-            Logging.Log($"LENGTH: {map.Length}");
+            Logging.Log($"{tier} Map Size: {map.Length}");
 
             // Spawn the ores.
             for (int i = 0; i < map.Length; i++)

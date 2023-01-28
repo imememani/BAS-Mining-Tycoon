@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using BASLogger;
+using System.Threading.Tasks;
 using ThunderRoad;
 using UnityEngine;
 
@@ -20,19 +21,30 @@ namespace MiningTycoon
         public SVector rotation;
         public SVector velocity;
 
+        public bool isCreature;
+
         /// <summary>
         /// Map this instance to an object.
         /// </summary>
         public void MapTo(TycoonWorldObject worldObject)
         {
-            itemID = worldObject.data.id;
+            isCreature = worldObject.creatureData != null;
+            itemID = isCreature ? worldObject.creatureData.id : worldObject.data.id;
 
-            heldAt = worldObject.thunderItem.handlers.Count > 0 ? (int)worldObject.thunderItem.handlers[0].side : -1;
-            holsteredAt = worldObject.thunderItem.holder != null ? worldObject.thunderItem.holder.data.id : null;
+            Logging.Log($"Serializing: {worldObject}");
+            if (!isCreature)
+            {
+                heldAt = worldObject.thunderItem.handlers.Count > 0 ? (int)worldObject.thunderItem.handlers[0].side : -1;
+                holsteredAt = worldObject.thunderItem.holder != null ? worldObject.thunderItem.holder.data.id : null;
 
-            Rigidbody rb = worldObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            { velocity = new SVector().From(rb.velocity); }
+                Rigidbody rb = worldObject.GetComponent<Rigidbody>();
+                if (rb != null)
+                { velocity = new SVector().From(rb.velocity); }
+            }
+            else
+            {
+                velocity = new SVector().From(worldObject.GetComponent<Creature>().locomotion.rb.velocity);
+            }
 
             position = new SVector().From(worldObject.transform.position);
             rotation = new SVector().From(worldObject.transform.localEulerAngles);
@@ -43,6 +55,18 @@ namespace MiningTycoon
         /// </summary>
         public void Load()
         {
+            // Is this data a creature?
+            if (isCreature)
+            {
+                Tycoon.SpawnTycoonCreature(itemID, position.ToVector3, rotation.y, creature =>
+                {
+                    Creature target = creature.GetComponent<Creature>();
+                    target.locomotion.rb.velocity = velocity.ToVector3;
+                });
+                return;
+            }
+
+            // Spawn an item.
             Tycoon.SpawnTycoonItem(itemID, position.ToVector3, Quaternion.Euler(rotation.ToVector3), async worldObject =>
             {
                 worldObject.data.health = itemHealth;

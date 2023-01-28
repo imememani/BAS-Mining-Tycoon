@@ -7,6 +7,8 @@ using UnityEngine;
 
 namespace MiningTycoon
 {
+    // TODO: Serialization refactor, want it to be a bit more generic.
+
     /// <summary>
     /// Mod entry.
     /// 
@@ -40,6 +42,7 @@ namespace MiningTycoon
             DebugLogConsole.AddCommand("Tycoon-reset", "Reset the current tycoon.", Commands.Reset);
             DebugLogConsole.AddCommand<double>("Tycoon-add-doubloons", "Give yourself doubloons.", Commands.AddDoubloons, "doubloons");
             DebugLogConsole.AddCommand<int>("Tycoon-add-ore", "Give yourself processed ore.", Commands.AddOre, "ore");
+            DebugLogConsole.AddCommand<string, bool>("Tycoon-spawn", "Spawn a tycoon item or creature.", Commands.Spawn, "id", "isCreature");
 
             Location = Path.Combine(Application.streamingAssetsPath, "Mods", "Mining Tycoon");
 

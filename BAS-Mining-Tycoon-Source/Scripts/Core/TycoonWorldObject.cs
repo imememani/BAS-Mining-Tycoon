@@ -1,16 +1,28 @@
-﻿using UnityEngine;
+﻿using ThunderRoad;
+using UnityEngine;
 
 namespace MiningTycoon
 {
     public class TycoonWorldObject : MonoBehaviour, ITycoonDataHolder
     {
         public Item data;
+        public CreatureData creatureData;
         public ThunderRoad.Item thunderItem;
 
         private void Awake()
         {
             thunderItem = GetComponent<ThunderRoad.Item>();
+            if (GetComponent<Creature>() is Creature creature) creature.OnKillEvent += HandleCreatureDeath;
+
             Tycoon.WorldObjects.Add(this);
+        }
+
+        private void HandleCreatureDeath(CollisionInstance collisionInstance, EventTime eventTime)
+        {
+            if (eventTime != EventTime.OnEnd)
+            { return; }
+
+            Tycoon.WorldObjects.Remove(this);
         }
 
         private void OnDestroy() => Tycoon.WorldObjects.Remove(this);
@@ -27,6 +39,11 @@ namespace MiningTycoon
             {
                 thunderItem.InjectItemData(id);
             }
+        }
+
+        public void LoadCreature(CreatureData data)
+        {
+            this.creatureData = data;
         }
 
         /// <summary>

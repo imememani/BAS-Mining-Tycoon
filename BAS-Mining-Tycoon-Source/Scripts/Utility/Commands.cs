@@ -1,4 +1,5 @@
 ﻿using IngameDebugConsole;
+using ThunderRoad;
 using Unity.Collections.LowLevel.Unsafe;
 
 namespace MiningTycoon
@@ -22,5 +23,8 @@ namespace MiningTycoon
 
         [ConsoleMethod("Tycoon-add-ore", "Give yourself processed ore.", "ore")]
         public static void AddOre(int amount) => TycoonSaveHandler.Current.AddOre(amount);
+
+        [ConsoleMethod("Tycoon-spawn", "Spawn a tycoon item or creature.", "id", "isCreature")]
+        public static void Spawn(string id, bool creature) { if (creature) Tycoon.SpawnTycoonCreature(id, TycoonUtilities.GetFloatyTextPlayerAnchor(), 0); else Tycoon.SpawnTycoonItem(id, TycoonUtilities.GetFloatyTextPlayerAnchor(), UnityEngine.Quaternion.identity, null); }
     }
 }

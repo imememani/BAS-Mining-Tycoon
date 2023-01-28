@@ -96,15 +96,7 @@ namespace MiningTycoon
 
         private void Start()
         {
-            // Add all the pickaxes.
-            foreach (var entry in Tycoon.ItemDatabase)
-            {
-                if (entry.Value is ToolItem)
-                {
-                    AddItem(entry.Value, "Items");
-                }
-            }
-
+            FillCategories();
             Refresh();
         }
 
@@ -136,7 +128,12 @@ namespace MiningTycoon
 
             // Spawn the item.
             if (Tycoon.IsTycoonItem(id))
-            { Tycoon.SpawnTycoonItem(id, local.spawnPoint.position, Quaternion.identity); }
+            {
+                if (Tycoon.ItemDatabase[id] is CreatureItem)
+                { Tycoon.SpawnTycoonCreature(id, local.spawnPoint.position, 0); }
+                else
+                { Tycoon.SpawnTycoonItem(id, local.spawnPoint.position, Quaternion.identity); }
+            }
 
             // Play sound.
             // 0 - Purchase.
@@ -182,7 +179,7 @@ namespace MiningTycoon
             { return; }
 
             // Name.
-            itemName.text = item.id;
+            itemName.text = !string.IsNullOrEmpty(item.displayName) ? item.displayName : item.id;
 
             // Description.
             itemDescription.text = item.GetShopDescription();
@@ -229,7 +226,7 @@ namespace MiningTycoon
             ClearItems();
 
             currentCategory = id;
-           
+
             // Order items by cost.
             Item[] items = categories[currentCategory].OrderBy(item => item.value).ToArray();
 
@@ -250,11 +247,11 @@ namespace MiningTycoon
                     Tycoon.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(2).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
 
                     // Title.
-                    go.transform.GetChild(4).GetComponent<Text>().text = items[index].id;
-                    
+                    go.transform.GetChild(4).GetComponent<Text>().text = !string.IsNullOrEmpty(items[index].displayName) ? items[index].displayName : items[index].id;
+
                     // Cost.
                     go.transform.GetChild(3).GetChild(1).GetComponent<Text>().text = items[index].value.FormatDoubloons();
-                    
+
                     // Display.
                     go.GetComponent<Button>().onClick.AddListener(() => DisplayItem(items[index]));
                 }, "Shop->ShopItem");
@@ -323,6 +320,23 @@ namespace MiningTycoon
             DisplayItem(currentlyDisplaying);
 
             Logging.Log($"Shop refreshed (category: {currentCategory}).");
+        }
+
+        /// <summary>
+        /// Add items to categories.
+        /// </summary>
+        private void FillCategories()
+        {
+            // Add all the pickaxes.
+            foreach (var entry in Tycoon.ItemDatabase)
+            {
+                if (entry.Value is ToolItem)
+                {
+                    AddItem(entry.Value, "Items");
+                }
+            }
+
+            AddItem(Tycoon.ItemDatabase["Chicken"], "Misc");
         }
 
         /// <summary>

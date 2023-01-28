@@ -309,11 +309,9 @@ MonoBehaviour:
   moveToHandle: {fileID: 0}
   moveToHandleAxisPos: 0
   allowedOrientations: []
-  handlers: []
   canBeEscaped: 0
   grappleEscapeParameterValue: 0
   escapeDelay: 0
-  isBackGrab: 0
 --- !u!1 &160979047084414454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,8 +1490,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &1505766174112033495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,8 +1543,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!1 &1505766174222708180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,11 +1658,9 @@ MonoBehaviour:
   moveToHandle: {fileID: 0}
   moveToHandleAxisPos: 0
   allowedOrientations: []
-  handlers: []
   canBeEscaped: 0
   grappleEscapeParameterValue: 0
   escapeDelay: 0
-  isBackGrab: 0
 --- !u!1 &1505766174278432962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,8 +1973,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &1505766174525448478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,8 +2072,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!1 &1505766174690599458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,8 +2191,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &1505766174839072559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,8 +2290,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!1 &1505766174844085972
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,8 +2359,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &1505766174844085979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2476,8 +2458,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!1 &1505766175030395721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,13 +2559,6 @@ MonoBehaviour:
   collisionMinVelocity: 2
   allowSelfDamage: 0
   grippable: 1
-  physicToggle: 0
-  physicTogglePlayerRadius: 5
-  physicToggleRagdollRadius: 3
-  physicEnabledDuration: 2
-  state: 6
-  hipsAttached: 0
-  parts: []
 --- !u!1 &1505766175313145836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,8 +2658,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &1505766176007630168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,8 +2757,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!1 &1555443152910143418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,11 +3313,9 @@ MonoBehaviour:
   moveToHandle: {fileID: 0}
   moveToHandleAxisPos: 0
   allowedOrientations: []
-  handlers: []
   canBeEscaped: 0
   grappleEscapeParameterValue: 0
   escapeDelay: 0
-  isBackGrab: 0
 --- !u!1 &2286392204545635902
 GameObject:
   m_ObjectHideFlags: 0
@@ -3847,8 +3814,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!144 &5618834225336857443
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -3912,8 +3877,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &3679375132696440985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4078,7 +4041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e10a73decd686478528485e59d96d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isManuallyControlled: 0
 --- !u!1 &3218706051454813424
 GameObject:
   m_ObjectHideFlags: 0
@@ -5784,8 +5746,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &4711888259439847761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5890,8 +5850,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 1
   customInertiaTensorCollider: {fileID: 6489700428064093541}
-  collisions: []
-  isColliding: 0
 --- !u!1 &5689597173739855832
 GameObject:
   m_ObjectHideFlags: 0
@@ -5961,8 +5919,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &5689597173739855831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6306,8 +6262,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &5689597174666958764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6407,8 +6361,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!1 &5689597174777988405
 GameObject:
   m_ObjectHideFlags: 0
@@ -6670,8 +6622,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &5689597174911614900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6771,8 +6721,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!1 &5689597174931162261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6844,8 +6792,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &7458412837101576691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6950,8 +6896,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 1
   customInertiaTensorCollider: {fileID: 1505766174222708186}
-  collisions: []
-  isColliding: 0
 --- !u!1 &5689597175376794763
 GameObject:
   m_ObjectHideFlags: 0
@@ -7022,8 +6966,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &5689597175376794760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7123,8 +7065,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!1 &5708871912947067864
 GameObject:
   m_ObjectHideFlags: 0
@@ -7225,8 +7165,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!144 &4133322210573278031
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -7290,8 +7228,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &4205632455465334216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7937,8 +7873,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!144 &4402048992169331575
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -8002,8 +7936,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &8312142350999998786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9190,8 +9122,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!144 &689256688859177792
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -9255,8 +9185,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &8605380363548395286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9643,11 +9571,9 @@ MonoBehaviour:
   moveToHandle: {fileID: 0}
   moveToHandleAxisPos: 0
   allowedOrientations: []
-  handlers: []
   canBeEscaped: 0
   grappleEscapeParameterValue: 0
   escapeDelay: 0
-  isBackGrab: 0
 --- !u!1 &8264541521999946432
 GameObject:
   m_ObjectHideFlags: 0
@@ -9934,8 +9860,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!144 &4475572069662559277
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -9999,8 +9923,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &6286935546000688319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10127,7 +10049,6 @@ MonoBehaviour:
   jawMaxRotation: {x: 0, y: 0, z: 30}
   autoEyeClipsActive: 1
   allEyes: []
-  eyeClips: []
   fallAliveAnimationHeight: 0.5
   fallAliveDestabilizeHeight: 3
   groundStabilizationMaxVelocity: 1
@@ -10152,149 +10073,14 @@ MonoBehaviour:
   upperBodyDynamicLoopReplaceClip: {fileID: 0}
   subStanceAReplaceClip: {fileID: 0}
   subStanceBReplaceClip: {fileID: 0}
-  morphology:
-    eyesHeight: 0
-    eyesForward: 0
-    headHeight: 0
-    headForward: 0
-    chestHeight: 0
-    spineHeight: 0
-    hipsHeight: 0
-    armsSpacing: 0
-    armsLength: 0
-    armsHeight: 0
-    armsToEyesHeight: 0
-    height: 0
-    legsLength: 0
-    legsSpacing: 0
-    upperLegsHeight: 0
-    lowerLegsHeight: 0
-    footHeight: 0
-  fallState: 0
-  lastDamage:
-    active: 0
-    incomplete: 0
-    sourceCollider: {fileID: 0}
-    targetCollider: {fileID: 0}
-    impactVelocity: {x: 0, y: 0, z: 0}
-    contactPoint: {x: 0, y: 0, z: 0}
-    contactNormal: {x: 0, y: 0, z: 0}
-    sourceMaterial:
-      id: 
-      saveFolder: Bas
-      sensitiveContent: 0
-      sensitiveFilterBehaviour: 0
-      version: 0
-      physicMaterialHash: 0
-      xpReference: 
-      apparelProtectionLevel: 0
-      idMapColors: []
-      defaultEffects: []
-      isMetal: 0
-      collisions: []
-    targetMaterial:
-      id: 
-      saveFolder: Bas
-      sensitiveContent: 0
-      sensitiveFilterBehaviour: 0
-      version: 0
-      physicMaterialHash: 0
-      xpReference: 
-      apparelProtectionLevel: 0
-      idMapColors: []
-      defaultEffects: []
-      isMetal: 0
-      collisions: []
-    casterHand: {fileID: 0}
-    damageStruct:
-      active: 0
-      time: 0
-      damageType: 0
-      materialModifier:
-        tierFilter: 0
-        imbuesFilterLogic: 0
-        imbuesFilter: []
-        minVelocity: 1
-        damageMultiplier: 1
-        allowKnockout: 0
-        allowPenetration: 0
-        pressureAllowed: 0
-        knockoutAllowedMinVelocity: Infinity
-        knockoutForcedMinVelocity: Infinity
-        knockoutThrowAllowedMinVelocity: Infinity
-        knockoutThrowForcedMinVelocity: Infinity
-        knockoutDurationMultiplier: 1
-        pushLevels: []
-        penetrationMinVelocity: 1
-        penetrationDamperMultiplier: 1
-        penetrationVelocityMaxDepth: 0
-        penetrationVelocityMaxDepthCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        pressureForceMultiplier: 1
-      baseDamage: 0
-      damage: 0
-      badAngle: 0
-      pushLevel: 0
-      hitRagdollPart: {fileID: 0}
-      hitBack: 0
-      hitItem: {fileID: 0}
-      damager: {fileID: 0}
-      penetration: 0
-      penetrationJoint: {fileID: 0}
-      penetrationRb: {fileID: 0}
-      penetrationTempRb: 0
-      penetrationDepth: 0
-      penetrationDepthReached: 0
-      penetrationDeepReached: 0
-      penetrationDeepEffectInstance:
-        effects: []
-        fromPlayer: 0
-      penetrationCutAxisPos: 0
-      penetrationFromThrow: 0
-      lastRumbleDepth: 0
-      lastDepth: 0
-      penetrationPoint: {fileID: 0}
-      penetrationEffectInstance:
-        effects: []
-        fromPlayer: 0
-      penetrationEffectLastDistance: 0
-      hasPenetrationEffect: 0
-      stickMassModified: 0
-    sourceColliderGroup: {fileID: 0}
-    targetColliderGroup: {fileID: 0}
-    intensity: 0
-    lastRumbleSourcePoint: {x: 0, y: 0, z: 0}
-    lastRumbleTargetPoint: {x: 0, y: 0, z: 0}
-    pressureRelativeVelocity: {x: 0, y: 0, z: 0}
-    pressureForce: {x: 0, y: 0, z: 0}
-    ignoreDamage: 0
-    lastCheckFrame: 0
-    lastCheckFrameCount: 0
-    lastStayFrame: 0
-    effectInstance:
-      effects: []
-      fromPlayer: 0
-    hasEffect: 0
-    hasStayCollision: 0
-  factionId: 0
-  faction:
-    id: 0
+  data:
+    id: 
+    saveFolder: Bas
+    sensitiveContent: 0
+    sensitiveFilterBehaviour: 0
+    hashId: 0
+    version: 0
     name: 
-    attackBehaviour: 0
-  initialized: 0
-  loaded: 0
-  isPlayingDynamicAnimation: 0
-  animationDampTime: 0.1
-  stationaryVelocityThreshold: 0.01
-  turnAnimSpeed: 0.007
-  currentHealth: 50
-  maxHealth: 50
-  resurrectMinHeal: 5
-  isKilled: 0
 --- !u!54 &4562312211119665592
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10405,8 +10191,6 @@ MonoBehaviour:
     type: 2}
   flyDrag: 0.5
   customGravity: 0
-  speedModifiers: []
-  physicModifiers: []
 --- !u!1 &8954139885527063122
 GameObject:
   m_ObjectHideFlags: 0
@@ -10599,8 +10383,6 @@ MonoBehaviour:
   enterOnly: 0
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!144 &7643232642183423569
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -10664,8 +10446,6 @@ MonoBehaviour:
   enterOnly: 1
   customInertiaTensor: 0
   customInertiaTensorCollider: {fileID: 0}
-  collisions: []
-  isColliding: 0
 --- !u!114 &6303142285533939667
 MonoBehaviour:
   m_ObjectHideFlags: 0
