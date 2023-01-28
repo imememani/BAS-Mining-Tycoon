@@ -72,6 +72,8 @@ namespace MiningTycoon
         public override void OnUnload()
         {
             Tycoon.UnloadTycoon();
+            RenderSettings.fogColor = Color.black;
+
             base.OnUnload();
         }
     }

@@ -79,6 +79,9 @@ namespace MiningTycoon
             // 1 minute reset.
             timer = Time.time + 60.0f;
 
+            // Set the fog colour.
+            RenderSettings.fogColor = new Color32(50, 50, 50, 125);
+
             IsTycoonLoaded = true;
             Logging.Log("Tycoon initialized!");
         }
