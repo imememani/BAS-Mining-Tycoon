@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using IngameDebugConsole;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using ThunderRoad;
@@ -23,10 +24,23 @@ namespace MiningTycoon
         /// </summary>
         public static string Location { get; set; }
 
+        /// <summary>
+        /// ID of this tycoon.
+        /// </summary>
+        public static string TycoonLevelID { get; private set; }
+
         public override void Update() => Tycoon.TycoonUpdate();
 
         public override IEnumerator OnLoadCoroutine()
         {
+            // Add commands.
+            DebugLogConsole.AddCommand("Tycoon-regen", "Regenerates the tycoon ore map.", Commands.Regenerate);
+            DebugLogConsole.AddCommand("Tycoon-save", "Force the tycoon to save.", Commands.Save);
+            DebugLogConsole.AddCommand("Tycoon-load", "Force the tycoon to load.", Commands.Load);
+            DebugLogConsole.AddCommand("Tycoon-reset", "Reset the current tycoon.", Commands.Reset);
+            DebugLogConsole.AddCommand<double>("Tycoon-add-doubloons", "Give yourself doubloons.", Commands.AddDoubloons, "doubloons");
+            DebugLogConsole.AddCommand<int>("Tycoon-add-ore", "Give yourself processed ore.", Commands.AddOre, "ore");
+
             Location = Path.Combine(Application.streamingAssetsPath, "Mods", "Mining Tycoon");
 
             if (!Directory.Exists(Location))
@@ -36,6 +50,7 @@ namespace MiningTycoon
             }
 
             References = level.customReferences;
+            TycoonLevelID = level.data.id;
 
             return base.OnLoadCoroutine();
         }

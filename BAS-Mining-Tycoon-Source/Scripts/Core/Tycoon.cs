@@ -74,7 +74,7 @@ namespace MiningTycoon
 
             // Generate ore.
             Logging.Log("Generating ore veins...");
-            OreGenerator.GenerateOreVeins();
+            OreGenerator.GenerateWorld();
 
             // 1 minute reset.
             timer = Time.time + 60.0f;
@@ -109,9 +109,9 @@ namespace MiningTycoon
                 TycoonSaveHandler.Save();
 
                 // Regenerate the world.
-                OreGenerator.RegenerateWorldVeins();
+                OreGenerator.GenerateWorld();
 
-                // Reste ticks.
+                // Reset ticks.
                 worldRegenTickCounter = 0;
             }
         }

@@ -15,6 +15,7 @@ namespace MiningTycoon.Scripts.Core
         public PlotData data;
 
         // Blocker UI to purchase the plot.
+        private GameObject plotMesh;
         private GameObject plotStatsUI;
         private GameObject plotPurchaseUI;
         private GameObject plotUpgradePurchaseUI;
@@ -53,6 +54,9 @@ namespace MiningTycoon.Scripts.Core
         /// </summary>
         private void UICache()
         {
+            plotMesh = transform.GetChild(0).gameObject;
+            plotMesh.SetActive(false);
+
             Transform uiRoot = transform.GetChild(2);
             secondTerminal = transform.GetChild(1).GetChild(1).gameObject;
             secondTerminal.SetActive(false);
@@ -82,12 +86,15 @@ namespace MiningTycoon.Scripts.Core
                 return;
             }
 
+            // Enable drill.
+            plotMesh.SetActive(true);
+
             // Enable the stat UI.
             plotStatsUI.SetActive(true);
             plotPurchaseUI.SetActive(false);
 
             // Cancel upgrade purchase.
-            plotUpgradePurchaseUI.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(() => DisplayUpgradePurchase(null));
+            plotUpgradePurchaseUI.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(() => DisplayUpgradePurchase(null));
 
             // Handle purchase event.
             purchaseModule.onClick.AddListener(TryPurchaseModule);

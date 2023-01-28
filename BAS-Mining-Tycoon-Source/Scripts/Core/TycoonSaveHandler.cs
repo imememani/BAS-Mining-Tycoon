@@ -37,6 +37,19 @@ namespace MiningTycoon
         }
 
         /// <summary>
+        /// Reset the players tycoon.
+        /// </summary>
+        public static void Reset()
+        {
+            // Delete the save file.
+            if (File.Exists(SaveLocation))
+            { File.Delete(SaveLocation); }
+
+            // Reload the tycoon.
+            GameManager.LoadLevel(Entry.TycoonLevelID);
+        }
+
+        /// <summary>
         /// Save the current session.
         /// </summary>
         public static void Save()
