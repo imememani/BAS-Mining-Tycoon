@@ -34,8 +34,8 @@ namespace MiningTycoon
             Logging.Log($"Serializing: {worldObject}");
             if (!isCreature)
             {
-                heldAt = worldObject.thunderItem.handlers.Count > 0 ? (int)worldObject.thunderItem.handlers[0].side : -1;
-                holsteredAt = worldObject.thunderItem.holder != null ? worldObject.thunderItem.holder.data.id : null;
+                heldAt = worldObject.thunderItem?.handlers.Count > 0 ? (int)worldObject.thunderItem.handlers[0].side : -1;
+                holsteredAt = worldObject.thunderItem?.holder != null ? worldObject.thunderItem.holder.data.id : null;
 
                 Rigidbody rb = worldObject.GetComponent<Rigidbody>();
                 if (rb != null)

@@ -192,6 +192,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
+  - m_GUID: 25f9915fd3a986f498d10463ae23c2de
+    m_Address: Tycoon.Minecart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: f373c4b88b8022b4a9592e1bed693013
+    m_Address: Tycoon.Icon.Minecart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 132014cea78f29e438ada0adbc28dbbc
+    m_Address: Tycoon.Icon.SmallBasket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 55525626794e21f4990a1a528dccc970
+    m_Address: Tycoon.Icon.MediumBasket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 0de5fa814bb6fb64bb166362f5dea356
+    m_Address: Tycoon.Icon.LargeBasket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b14c4d9d8b63f3247be008fe8b53d3ae, type: 2}
   m_SchemaSet:

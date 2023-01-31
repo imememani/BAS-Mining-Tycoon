@@ -27,10 +27,19 @@ namespace MiningTycoon
         // How much is this worth?
         public double value = 0.0d;
 
+        // Is this purchasable in the shop?
+        public bool purchasable = false;
+
+        // Which category does it reside in?
+        public string shopCategory = "Items";
+
+        // Optional shop description.
+        public string shopDescription = "No description.";
+
         /// <summary>
         /// Obtain a shop description.
         /// </summary>
-        public virtual string GetShopDescription() => "No description."; 
+        public virtual string GetShopDescription() => shopDescription; 
 
         public virtual Item Copy() 
         { return MemberwiseClone() as Item; }

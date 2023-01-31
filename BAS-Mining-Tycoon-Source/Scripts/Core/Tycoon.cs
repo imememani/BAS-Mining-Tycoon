@@ -207,6 +207,20 @@ namespace MiningTycoon
         }
 
         /// <summary>
+        /// Generate an item icon if supported.
+        /// </summary>
+        public static void GenerateItemIcon(this Item item, Action<Texture2D> onTextureLoaded)
+        {
+            LoadObject<GameObject>(item.address, go =>
+            {
+                ThunderRoad.Item thunderItem = go.GetComponent<ThunderRoad.Item>();
+
+                if ((thunderItem.data.icon as Texture2D) is Texture2D tex)
+                { onTextureLoaded?.Invoke(tex); }
+            });
+        }
+
+        /// <summary>
         /// Inject item data into the target item to make it functional without a json.
         /// </summary>
         public static void InjectItemData(this ThunderRoad.Item item, string id)

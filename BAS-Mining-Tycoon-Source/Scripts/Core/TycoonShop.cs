@@ -85,7 +85,6 @@ namespace MiningTycoon
 
             // Add categories.
             AddCategory("Items");
-            AddCategory("Misc");
 
             // Event hooks.
             TycoonSaveHandler.PlayerLoaded -= HandlePlayerLoad;
@@ -244,8 +243,9 @@ namespace MiningTycoon
                     go.transform.localScale = Vector3.one;
 
                     // Icon.
-                    Tycoon.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(2).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
-
+                    if (!string.IsNullOrEmpty(items[index].iconAddress))
+                    { Tycoon.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(2).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect)); }
+                    
                     // Title.
                     go.transform.GetChild(4).GetComponent<Text>().text = !string.IsNullOrEmpty(items[index].displayName) ? items[index].displayName : items[index].id;
 
@@ -330,13 +330,14 @@ namespace MiningTycoon
             // Add all the pickaxes.
             foreach (var entry in Tycoon.ItemDatabase)
             {
-                if (entry.Value is ToolItem)
+                if (entry.Value.purchasable)
                 {
-                    AddItem(entry.Value, "Items");
+                    if (!categories.ContainsKey(entry.Value.shopCategory))
+                    { AddCategory(entry.Value.shopCategory); }
+
+                    AddItem(entry.Value, entry.Value.shopCategory);
                 }
             }
-
-            AddItem(Tycoon.ItemDatabase["Chicken"], "Misc");
         }
 
         /// <summary>
