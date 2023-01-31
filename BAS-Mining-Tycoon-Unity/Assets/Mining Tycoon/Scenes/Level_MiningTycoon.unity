@@ -334,9 +334,26 @@ Transform:
   - {fileID: 1366264756}
   - {fileID: 1413882445}
   - {fileID: 1302793067}
-  - {fileID: 395216234}
   - {fileID: 1511506583}
   - {fileID: 1139484054}
+  - {fileID: 1439408326}
+  - {fileID: 1576273871}
+  - {fileID: 1408674706}
+  - {fileID: 1765808664}
+  - {fileID: 981174286}
+  - {fileID: 1451737202}
+  - {fileID: 991782404}
+  - {fileID: 1676025508}
+  - {fileID: 793848783}
+  - {fileID: 2136139589}
+  - {fileID: 1446211476}
+  - {fileID: 279038637}
+  - {fileID: 343844156}
+  - {fileID: 117325406}
+  - {fileID: 1402678540}
+  - {fileID: 1022262531}
+  - {fileID: 2075668705}
+  - {fileID: 1386562830}
   m_Father: {fileID: 433671464}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5429,6 +5446,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 111276692}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &117325405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117325406}
+  - component: {fileID: 117325407}
+  m_Layer: 0
+  m_Name: Stone-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &117325406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117325405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.4, y: 0, z: 43.17}
+  m_LocalScale: {x: 24.162115, y: 5.7207, z: 15.278845}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &117325407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117325405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 4
 --- !u!1001 &117554820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7963,7 +8024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189674737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.9, y: 0, z: 13.6}
+  m_LocalPosition: {x: 32, y: 0, z: 13.6}
   m_LocalScale: {x: 8.043977, y: 5.3162227, z: 14.115635}
   m_Children: []
   m_Father: {fileID: 4571952}
@@ -11073,6 +11134,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 278358404}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &279038636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 279038637}
+  - component: {fileID: 279038638}
+  m_Layer: 0
+  m_Name: Iron-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &279038637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279038636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -71.38, y: 0.15, z: 6.4}
+  m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279038638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279038636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 1
 --- !u!1001 &282911635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14617,6 +14722,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 341898712}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &343844155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 343844156}
+  - component: {fileID: 343844157}
+  m_Layer: 0
+  m_Name: Iron-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &343844156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343844155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -50.1, y: 0.15, z: 24.1}
+  m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &343844157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343844155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 1
 --- !u!1001 &347523691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17228,50 +17377,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 394943449}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &395216233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 395216234}
-  - component: {fileID: 395216235}
-  m_Layer: 0
-  m_Name: Uranium-Zone
-  m_TagString: Untagged
-  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &395216234
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395216233}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.1, y: 0, z: -4.7}
-  m_LocalScale: {x: 5.7207, y: 5.7207, z: 14.28516}
-  m_Children: []
-  m_Father: {fileID: 4571952}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &395216235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395216233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oreTier: 7
 --- !u!1001 &399365499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28573,7 +28678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694811942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.37, y: 0, z: -14.96}
+  m_LocalPosition: {x: -81.58, y: 0, z: -44.45}
   m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
   m_Children: []
   m_Father: {fileID: 4571952}
@@ -29551,7 +29656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708891239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.2, y: 0, z: -45.9}
+  m_LocalPosition: {x: 32.9, y: 0, z: -36.3}
   m_LocalScale: {x: 24.162115, y: 5.7207, z: 15.278845}
   m_Children: []
   m_Father: {fileID: 4571952}
@@ -32494,6 +32599,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 786045000}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &793848782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793848783}
+  - component: {fileID: 793848784}
+  m_Layer: 0
+  m_Name: Iron-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &793848783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793848782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -71.6, y: 0, z: -58.8}
+  m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &793848784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793848782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 1
 --- !u!1 &794333537
 GameObject:
   m_ObjectHideFlags: 0
@@ -33173,7 +33322,6 @@ MonoBehaviour:
     transforms:
     - {fileID: 189674738}
     - {fileID: 1963121522}
-    - {fileID: 395216234}
     - {fileID: 694811943}
     - {fileID: 708891240}
     - {fileID: 1048278191}
@@ -33187,6 +33335,24 @@ MonoBehaviour:
     - {fileID: 1587810091}
     - {fileID: 1745719282}
     - {fileID: 1818707265}
+    - {fileID: 1439408326}
+    - {fileID: 1576273871}
+    - {fileID: 1408674706}
+    - {fileID: 1765808664}
+    - {fileID: 981174286}
+    - {fileID: 1451737202}
+    - {fileID: 991782404}
+    - {fileID: 1676025508}
+    - {fileID: 793848783}
+    - {fileID: 2136139589}
+    - {fileID: 1446211476}
+    - {fileID: 279038637}
+    - {fileID: 343844156}
+    - {fileID: 117325406}
+    - {fileID: 1402678540}
+    - {fileID: 1022262531}
+    - {fileID: 2075668705}
+    - {fileID: 1386562830}
   - name: Plots
     transforms:
     - {fileID: 984855443}
@@ -38491,6 +38657,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 977846976}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &981174285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981174286}
+  - component: {fileID: 981174287}
+  m_Layer: 0
+  m_Name: Copper-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981174286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981174285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -58, y: 0, z: -108.8}
+  m_LocalScale: {x: 14.554771, y: 5.3162227, z: 14.115635}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &981174287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981174285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 0
 --- !u!1001 &981231681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40116,6 +40326,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 991320705}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &991782403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991782404}
+  - component: {fileID: 991782405}
+  m_Layer: 0
+  m_Name: Stone-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &991782404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991782403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.2, y: 0, z: -99}
+  m_LocalScale: {x: 24.162115, y: 5.7207, z: 23.084806}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991782405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991782403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 4
 --- !u!1001 &992913212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41557,6 +41811,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1020984512}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1022262530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022262531}
+  - component: {fileID: 1022262532}
+  m_Layer: 0
+  m_Name: Silver-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022262531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022262530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 107.6, y: 2.2, z: -104.7}
+  m_LocalScale: {x: 7.912277, y: 5.7207, z: 6.7294807}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1022262532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022262530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 6
 --- !u!1001 &1029763833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44628,7 +44926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079549774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.07, y: 0, z: -22.75}
+  m_LocalPosition: {x: -72.9, y: 0, z: -22.75}
   m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
   m_Children: []
   m_Father: {fileID: 4571952}
@@ -47267,7 +47565,7 @@ Transform:
   m_LocalScale: {x: 3.128994, y: 3.128994, z: 13.04196}
   m_Children: []
   m_Father: {fileID: 4571952}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1139484055
 MonoBehaviour:
@@ -56261,7 +56559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366264755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.6, y: 0, z: -32.4}
+  m_LocalPosition: {x: -40.4, y: 0, z: -32.4}
   m_LocalScale: {x: 24.162115, y: 5.7207, z: 15.278845}
   m_Children: []
   m_Father: {fileID: 4571952}
@@ -56600,6 +56898,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1374904893}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1386562829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386562830}
+  - component: {fileID: 1386562831}
+  m_Layer: 0
+  m_Name: Stone-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386562830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386562829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 115.54, y: 2.09, z: -20.96}
+  m_LocalScale: {x: 4.220864, y: 5.7207, z: 35.682217}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1386562831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386562829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 4
 --- !u!1001 &1387516535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56901,6 +57243,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1402256629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1402678539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1402678540}
+  - component: {fileID: 1402678541}
+  m_Layer: 0
+  m_Name: Stone-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1402678540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402678539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64.21, y: 0, z: 8.14}
+  m_LocalScale: {x: 15.783176, y: 3.7368755, z: 15.82799}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1402678541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402678539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 4
 --- !u!1001 &1404936042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57039,6 +57425,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1406119244}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1408674705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1408674706}
+  - component: {fileID: 1408674707}
+  m_Layer: 0
+  m_Name: Silver-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1408674706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408674705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 78.8, y: 0, z: -58.9}
+  m_LocalScale: {x: 7.912277, y: 5.7207, z: 6.7294807}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1408674707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408674705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 6
 --- !u!1 &1413882444
 GameObject:
   m_ObjectHideFlags: 0
@@ -57064,7 +57494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413882444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.93, y: 0, z: 9.71}
+  m_LocalPosition: {x: -15.1, y: 0, z: -66.6}
   m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
   m_Children: []
   m_Father: {fileID: 4571952}
@@ -57389,6 +57819,50 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &1439408325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439408326}
+  - component: {fileID: 1439408327}
+  m_Layer: 0
+  m_Name: Ruby-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1439408326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439408325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -80.3, y: 0, z: 28.1}
+  m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439408327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439408325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 2
 --- !u!1001 &1439509227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58152,6 +58626,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1445433534}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1446211475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1446211476}
+  - component: {fileID: 1446211477}
+  m_Layer: 0
+  m_Name: Iron-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1446211476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446211475}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -71.38, y: -1.39, z: -95.75}
+  m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1446211477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446211475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 1
 --- !u!1001 &1447371968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58611,6 +59129,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1448566530}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1451737201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451737202}
+  - component: {fileID: 1451737203}
+  m_Layer: 0
+  m_Name: Stone-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1451737202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451737201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.9, y: 0, z: -3.8}
+  m_LocalScale: {x: 24.162115, y: 5.7207, z: 15.278845}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451737203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451737201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 4
 --- !u!1001 &1454092283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60931,7 +61493,7 @@ Transform:
   m_LocalScale: {x: 4.4324417, y: 5.7207, z: 10.737147}
   m_Children: []
   m_Father: {fileID: 4571952}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1511506584
 MonoBehaviour:
@@ -63657,6 +64219,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1576081612}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1576273870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1576273871}
+  - component: {fileID: 1576273872}
+  m_Layer: 0
+  m_Name: Ruby-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1576273871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576273870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -29.4, y: 0, z: 24.2}
+  m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576273872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576273870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 2
 --- !u!1001 &1577490794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66713,6 +67319,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000005, y: 2.000001, z: 2.5261347}
   m_Center: {x: -0.000015258789, y: 4.6340045e-16, z: -0.26306605}
+--- !u!1 &1676025507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676025508}
+  - component: {fileID: 1676025509}
+  m_Layer: 0
+  m_Name: Tin-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1676025508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676025507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.4, y: 0, z: -87.3}
+  m_LocalScale: {x: 15.916703, y: 5.7207, z: 17.741606}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1676025509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676025507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 5
 --- !u!1 &1678874378
 GameObject:
   m_ObjectHideFlags: 0
@@ -69011,7 +69661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745719281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.83, y: 0, z: -23.46}
+  m_LocalPosition: {x: 36.13, y: 0, z: -58.8}
   m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
   m_Children: []
   m_Father: {fileID: 4571952}
@@ -69277,6 +69927,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1763927367}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1765808663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765808664}
+  - component: {fileID: 1765808665}
+  m_Layer: 0
+  m_Name: Stone-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1765808664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765808663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -40.4, y: 0, z: -65.9}
+  m_LocalScale: {x: 24.162115, y: 5.7207, z: 15.278845}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1765808665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765808663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 4
 --- !u!1001 &1766084199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70822,7 +71516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818707264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.2, y: 0, z: 23.8}
+  m_LocalPosition: {x: 73.1, y: 0, z: 39.7}
   m_LocalScale: {x: 7.444347, y: 5.7207, z: 15.278845}
   m_Children: []
   m_Father: {fileID: 4571952}
@@ -76952,8 +77646,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963121521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.55, y: 0, z: 2.68}
-  m_LocalScale: {x: 8.043977, y: 5.3162227, z: 14.115635}
+  m_LocalPosition: {x: -48.7, y: 0, z: 2.68}
+  m_LocalScale: {x: 14.554771, y: 5.3162227, z: 14.115635}
   m_Children: []
   m_Father: {fileID: 4571952}
   m_RootOrder: 2
@@ -82729,6 +83423,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000005, y: 2.000001, z: 2.5261347}
   m_Center: {x: -0.000015258789, y: 4.6340045e-16, z: -0.26306605}
+--- !u!1 &2075668704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2075668705}
+  - component: {fileID: 2075668706}
+  m_Layer: 0
+  m_Name: Stone-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2075668705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075668704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 106.73, y: 2.09, z: -3.8}
+  m_LocalScale: {x: 4.220864, y: 5.7207, z: 35.682217}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2075668706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075668704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 4
 --- !u!1 &2080516783
 GameObject:
   m_ObjectHideFlags: 0
@@ -85005,6 +85743,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2135601156}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2136139588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136139589}
+  - component: {fileID: 2136139590}
+  m_Layer: 0
+  m_Name: Iron-Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136139589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136139588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -79.42, y: 0.71, z: -87.22}
+  m_LocalScale: {x: 5.7207, y: 5.7207, z: 5.7207}
+  m_Children: []
+  m_Father: {fileID: 4571952}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136139590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136139588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c7194532830ad439c08b859f7c2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTier: 1
 --- !u!1001 &2137762007
 PrefabInstance:
   m_ObjectHideFlags: 0
