@@ -125,24 +125,29 @@ namespace MiningTycoon
 
                 // Load plots.
                 int index = 0;
-                foreach (Transform plotObject in Entry.References[1].transforms)
+                foreach (Transform plotObject in Entry.GetReference("Plots").transforms)
                 {
-                    Plot plot = plotObject.gameObject.AddComponent<Plot>();
-                    plot.MachineID = index;
-
-                    // Try load the plot data.
-                    for (int i = 0; i < Current.plots.Count; i++)
+                    // Spawn a plot.
+                    Catalog.InstantiateAsync("Tycoon.Plot", plotObject.position, plotObject.rotation, plotObject.parent, go =>
                     {
-                        if (Current.plots[i].machineID == plot.MachineID)
-                        {
-                            plot.Load(Current.plots[i]);
-                            break;
-                        }
-                    }
+                        Object.Destroy(plotObject.gameObject);
+                        Plot plot = go.AddComponent<Plot>();
+                        plot.MachineID = index;
 
-                    plot.RefreshPlotUI();
-                    Logging.Log($"PLOT LOADED: {plotObject}[{plot.MachineID}]");
-                    index++;
+                        // Try load the plot data.
+                        for (int i = 0; i < Current.plots.Count; i++)
+                        {
+                            if (Current.plots[i].machineID == plot.MachineID)
+                            {
+                                plot.Load(Current.plots[i]);
+                                break;
+                            }
+                        }
+
+                        plot.RefreshPlotUI();
+                        Logging.Log($"PLOT LOADED: {plotObject}[{plot.MachineID}]");
+                        index++;
+                    }, "Load->Plot");
                 }
 
                 // Trigger events.

@@ -13,7 +13,7 @@ namespace MiningTycoon
         public string displayName;
 
         // What item tier is this?
-        public int tier = 0;
+        public Tier tier = Tier.Common;
 
         // Optional spawn address.
         public string address;

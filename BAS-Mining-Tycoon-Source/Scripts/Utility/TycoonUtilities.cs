@@ -28,6 +28,20 @@ namespace MiningTycoon
         };
 
         /// <summary>
+        /// Convert a Texture to a Texture2D.
+        /// </summary>
+        public static Texture2D ConvertTexture(this Texture texture)
+        {
+            return Texture2D.CreateExternalTexture(
+                  texture.width,
+                  texture.height,
+                   TextureFormat.RGB24,
+                  false, false,
+                  texture.GetNativeTexturePtr()
+                );
+        }
+
+        /// <summary>
         /// Return a floaty text anchor in front of the player.
         /// </summary>
         public static Vector3 GetFloatyTextPlayerAnchor()

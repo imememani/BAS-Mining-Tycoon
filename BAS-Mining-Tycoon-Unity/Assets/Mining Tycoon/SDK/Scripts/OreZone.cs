@@ -4,28 +4,26 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class OreZone : MonoBehaviour
 {
-    [SerializeField] private Tier oreTier = Tier.Copper;
+    [SerializeField] private Tier oreTier = Tier.Very_Common;
     private Tier lastTier;
 
     private Color GetTierColour()
     {
         switch (oreTier)
         {
-            case Tier.Copper: ColorUtility.TryParseHtmlString("#fc6603", out Color copper); return copper;
+            case Tier.Very_Common: ColorUtility.TryParseHtmlString("#07f2b4", out Color vcommon); return vcommon;
 
-            case Tier.Iron: ColorUtility.TryParseHtmlString("#333333", out Color iron); return iron;
+            case Tier.Common: ColorUtility.TryParseHtmlString("#0891a6", out Color common); return common;
 
-            case Tier.Ruby: ColorUtility.TryParseHtmlString("#de0b1d", out Color ruby); return ruby;
+            case Tier.UnCommon: ColorUtility.TryParseHtmlString("#044a87", out Color uncommon); return uncommon;
 
-            case Tier.Gold: ColorUtility.TryParseHtmlString("#dec50b", out Color gold); return gold;
+            case Tier.Rare: ColorUtility.TryParseHtmlString("#f29007", out Color rare); return rare;
 
-            case Tier.Stone: ColorUtility.TryParseHtmlString("#242323", out Color stone); return stone;
+            case Tier.Very_Rare: ColorUtility.TryParseHtmlString("#b33e14", out Color vrare); return vrare;
 
-            case Tier.Tin: ColorUtility.TryParseHtmlString("#7d807e", out Color tin); return tin;
+            case Tier.Extremely_Rare: ColorUtility.TryParseHtmlString("#960303", out Color erare); return erare;
 
-            case Tier.Silver: ColorUtility.TryParseHtmlString("#c9c9c9", out Color silver); return silver;
-
-            case Tier.Uranium: ColorUtility.TryParseHtmlString("#00a12b", out Color uranium); return uranium;
+            case Tier.So_Rare_Theres_Only_One: ColorUtility.TryParseHtmlString("#080808", out Color fuckingrare); return fuckingrare;
         }
 
         return Color.black;

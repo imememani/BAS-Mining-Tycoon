@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using ThunderRoad;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace MiningTycoon
 {
@@ -30,6 +31,20 @@ namespace MiningTycoon
         /// ID of this tycoon.
         /// </summary>
         public static string TycoonLevelID { get; private set; }
+
+        /// <summary>
+        /// Get a reference by ID.
+        /// </summary>
+        public static Level.CustomReference GetReference(string id)
+        {
+            foreach (var reference in References)
+            {
+                if (string.CompareOrdinal(id, reference.name) == 0)
+                { return reference; }
+            }
+
+            return null;
+        }
 
         public override void Update() => Tycoon.TycoonUpdate();
 

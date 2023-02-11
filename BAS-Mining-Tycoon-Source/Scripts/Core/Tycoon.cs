@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using ThunderRoad;
 using UnityEngine;
 
@@ -66,15 +67,39 @@ namespace MiningTycoon
             }
 
             Logging.Log("Loading items...");
-            LoadItems();
+            try
+            { LoadItems(); }
+            catch (Exception e)
+            { e.LogError(); }
 
             // Add the shop UI.
             Logging.Log("Loading shop...");
-            Entry.References[Entry.References.Count - 1].transforms[0].gameObject.AddComponent<TycoonShop>();
+            try
+            {
+                if (Entry.GetReference("Shop") is Level.CustomReference shop)
+                {
+                    // Spawn the shop.
+                    Transform target = shop.transforms[0];
+                    Catalog.InstantiateAsync("Tycoon.Shop", target.position, target.rotation, target.parent, go =>
+                    {
+                        UnityEngine.Object.Destroy(target.gameObject);
+                        go.AddComponent<TycoonShop>();
+                    }, "Tycoon->ShopSpawn");
+                }
+                else
+                {
+                    Logging.LogError("NO TYCOON SHOP FOUND!");
+                }
+            }
+            catch (Exception e)
+            { e.LogError(); }
 
             // Generate ore.
             Logging.Log("Generating ore veins...");
-            OreGenerator.GenerateWorld();
+            try
+            { OreGenerator.GenerateWorld(); }
+            catch (Exception e)
+            { e.LogError(); }
 
             // 1 minute reset.
             timer = Time.time + 60.0f;
@@ -91,6 +116,10 @@ namespace MiningTycoon
         /// </summary>
         internal static void TycoonUpdate()
         {
+            // Await everything to load in.
+            if (TycoonShop.local == null)
+            { return; }
+
             if (Time.time > timer)
             {
                 // 1 minute reset.
@@ -112,7 +141,10 @@ namespace MiningTycoon
                 TycoonSaveHandler.Save();
 
                 // Regenerate the world.
-                OreGenerator.GenerateWorld();
+                try
+                { OreGenerator.GenerateWorld(); }
+                catch (Exception e)
+                { e.LogError(); }
 
                 // Reset ticks.
                 worldRegenTickCounter = 0;
@@ -211,12 +243,54 @@ namespace MiningTycoon
         /// </summary>
         public static void GenerateItemIcon(this Item item, Action<Texture2D> onTextureLoaded)
         {
-            LoadObject<GameObject>(item.address, go =>
+            LoadObject<GameObject>(item.address, async go =>
             {
+                Logging.Log($"Generating icon for {item.id}!");
                 ThunderRoad.Item thunderItem = go.GetComponent<ThunderRoad.Item>();
 
-                if ((thunderItem.data.icon as Texture2D) is Texture2D tex)
-                { onTextureLoaded?.Invoke(tex); }
+                // Try forcing a load.
+                if (!thunderItem.loaded)
+                { thunderItem.Load(Catalog.GetData<ItemData>(item.id)); }
+
+                // Try wait for any load events.
+                TimeSpan timeout = TimeSpan.FromSeconds(5);
+                TimeSpan second = TimeSpan.FromSeconds(1);
+                while (thunderItem != null && !thunderItem.loaded && timeout.Seconds > 0)
+                {
+                    await Task.Delay(second);
+                    timeout = timeout.Subtract(second);
+                }
+
+                // Item exist?
+                if (thunderItem == null || thunderItem.data == null)
+                {
+                    Logging.Log($"Object does not contain any ItemData!");
+                    return;
+                }
+
+                // Does an icon already exist?
+                if (thunderItem.data.icon != null)
+                {
+                    Logging.Log($"Object already has an icon cached!");
+                    onTextureLoaded?.Invoke(thunderItem.data.icon.ConvertTexture());
+                    return;
+                }
+
+                // Run the generation.
+                GameManager.local.StartCoroutine(ObjectViewer.CreateIcon(thunderItem.data));
+
+                // Try wait for any generation events.
+                timeout = TimeSpan.FromSeconds(5);
+                while (thunderItem.data.icon == null && timeout.Seconds > 0)
+                {
+                    await Task.Delay(second);
+                    timeout = timeout.Subtract(second);
+                }
+
+                Logging.Log(thunderItem.data.icon != null ? "Icon generated!" : "Unable to generate icon!");
+
+                if (thunderItem.data.icon != null)
+                { onTextureLoaded?.Invoke(thunderItem.data.icon.ConvertTexture()); }
             });
         }
 

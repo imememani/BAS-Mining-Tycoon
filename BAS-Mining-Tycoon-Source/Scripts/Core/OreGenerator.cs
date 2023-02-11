@@ -32,7 +32,7 @@ namespace MiningTycoon
                 // Wait for the end of the frame.
                 yield return Yielders.EndOfFrame;
 
-                List<(Vector3[], string tier)> oreMap = new List<(Vector3[], string tier)>();
+                List<(Vector3[], Tier tier)> oreMap = new List<(Vector3[], Tier tier)>();
                 foreach (var reference in Entry.References)
                 {
                     // Is this a zone?
@@ -52,13 +52,10 @@ namespace MiningTycoon
                         }
 
                         // Parse the tier.
-                        string tier = zone.name.Replace("-Zone", string.Empty);
-
-                        // Obtain a copy of the vein data.
-                        VeinItem vein = (VeinItem)Tycoon.ItemDatabase[tier.ToString()];
+                        Tier tier = (Tier)System.Enum.Parse(typeof(Tier), zone.name.Replace("-Zone", string.Empty));
 
                         // Calculate a random amount.
-                        Vector2 map = new Vector2(vein.minSpawn, vein.maxSpawn);
+                        Vector2 map = GetTierPopulation(tier);
                         int population = (int)Random.Range(map.x, map.y);
 
                         Logging.Log($"Generating {tier} Ore Map!");
@@ -90,9 +87,19 @@ namespace MiningTycoon
         /// <summary>
         /// Generate ore in a zone.
         /// </summary>
-        public static IEnumerator GenerateVeinsFromPopulationMap(this Vector3[] map, string tier)
+        public static IEnumerator GenerateVeinsFromPopulationMap(this Vector3[] map, Tier tier)
         {
             Logging.Log($"{tier} Map Size: {map.Length}");
+
+            // A collection of all ores under the target tier.
+            List<string> ids = new List<string>();
+
+            // Obtain all ore under the tier.
+            foreach (var entry in Tycoon.ItemDatabase)
+            {
+                if (entry.Value.tier == tier && entry.Value is VeinItem)
+                { ids.Add(entry.Key); }
+            }
 
             // Spawn the ores.
             for (int i = 0; i < map.Length; i++)
@@ -100,7 +107,8 @@ namespace MiningTycoon
                 int index = i;
 
                 // Spawn a vein.
-                Tycoon.SpawnItem(tier, map[index], Quaternion.identity, go =>
+                string id = ids[Random.Range(0, ids.Count)];
+                Tycoon.SpawnItem(id, map[index], Quaternion.identity, go =>
                 {
                     Logging.Log($"@ {map[index]}");
 
@@ -113,7 +121,7 @@ namespace MiningTycoon
 
                     // Load the vein up.
                     OreVein ore = go.AddComponent<OreVein>();
-                    ore.Load(tier.ToString());
+                    ore.Load(id);
 
                     // Add scale factor to health.
                     ore.data.health += (Mathf.Abs((1.0f - scale)) * 100);
@@ -170,6 +178,32 @@ namespace MiningTycoon
             }
 
             return map.ToArray();
+        }
+
+        /// <summary>
+        /// Obtain a tier population map.
+        /// </summary>
+        private static Vector2 GetTierPopulation(Tier tier)
+        {
+            switch (tier)
+            {
+                case Tier.Very_Common:
+                    return new Vector2(10, 20);
+                case Tier.Common:
+                    return new Vector2(8, 16);
+                case Tier.UnCommon:
+                    return new Vector2(6, 14);
+                case Tier.Rare:
+                    return new Vector2(4, 11);
+                case Tier.Very_Rare:
+                    return new Vector2(2, 10);
+                case Tier.Extremely_Rare:
+                    return new Vector2(1, 5);
+                case Tier.So_Rare_Theres_Only_One:
+                    return new Vector2(0, 1);
+            }
+
+            return Vector2.zero;
         }
     }
 }

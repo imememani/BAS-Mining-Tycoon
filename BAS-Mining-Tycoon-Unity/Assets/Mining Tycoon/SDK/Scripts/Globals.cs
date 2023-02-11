@@ -1,9 +1,3 @@
-﻿using MiningTycoon;
-
-public delegate void PlayerLoadedEvent(TycoonPlayer player);
-
-public delegate void TycoonTickEvent();
-
 public enum Tier
 {
     Very_Common = 0,
@@ -13,4 +7,10 @@ public enum Tier
     Very_Rare = 4,
     Extremely_Rare = 5,
     So_Rare_Theres_Only_One = 6
+}
+
+public enum CoreType
+{
+    Plots,
+    Shop
 }

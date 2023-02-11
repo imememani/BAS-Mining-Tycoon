@@ -187,7 +187,10 @@ namespace MiningTycoon
             itemCost.text = $"<color={(CanPurchase(item.value) ? "white" : "red")}>{item.value.FormatDoubloons()}</color>";
 
             // Icon.
-            Tycoon.LoadObject<Texture2D>(item.iconAddress, icon => itemIcon.sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect));
+            if (!string.IsNullOrEmpty(item.iconAddress))
+            { Tycoon.LoadObject<Texture2D>(item.iconAddress, icon => itemIcon.sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect)); }
+            else
+            { Tycoon.GenerateItemIcon(item, icon => itemIcon.sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect)); }
 
             // Enable/Disable purchase.
             purchase.interactable = CanPurchase(item.value);
@@ -223,6 +226,7 @@ namespace MiningTycoon
         {
             Logging.Log($"Opening category: {id}");
             ClearItems();
+            DisplayItem(null);
 
             currentCategory = id;
 
@@ -245,7 +249,9 @@ namespace MiningTycoon
                     // Icon.
                     if (!string.IsNullOrEmpty(items[index].iconAddress))
                     { Tycoon.LoadObject<Texture2D>(items[index].iconAddress, icon => go.transform.GetChild(2).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect)); }
-                    
+                    else
+                    { Tycoon.GenerateItemIcon(items[index], icon => go.transform.GetChild(2).GetComponent<Image>().sprite = Sprite.Create(icon, new Rect(0, 0, icon.width, icon.height), Vector2.zero, 10, 0, SpriteMeshType.FullRect)); }
+
                     // Title.
                     go.transform.GetChild(4).GetComponent<Text>().text = !string.IsNullOrEmpty(items[index].displayName) ? items[index].displayName : items[index].id;
 

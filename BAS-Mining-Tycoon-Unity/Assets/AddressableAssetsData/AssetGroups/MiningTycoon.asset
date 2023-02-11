@@ -117,31 +117,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
-  - m_GUID: cec788a9bec1ff4458af97448dcb5c34
-    m_Address: Tycoon.UI.Category
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Windows
-  - m_GUID: 9f702aa74964cd049bf2f927f5d06dc9
-    m_Address: Tycoon.UI.ShopItem
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Windows
-  - m_GUID: c3f447f1f15b97d44ba93f0fbf37c73b
-    m_Address: Tycoon.Audio.PickaxeSounds
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Windows
-  - m_GUID: e2b91f9cedbf77c41a6723dc90000711
-    m_Address: Tycoon.Audio.StoreSounds
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Windows
-  - m_GUID: 804bb0480849bad479f9a64d84841cb5
-    m_Address: Tycoon.UI.FloatyText
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Windows
   - m_GUID: 032d2d937632f8d438cd3906394b2f9d
     m_Address: Tycoon.StoneVein
     m_ReadOnly: 0
@@ -149,11 +124,6 @@ MonoBehaviour:
     - Windows
   - m_GUID: 27b3a63b56e2923439b339edbe188c06
     m_Address: Tycoon.StoneOre
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Windows
-  - m_GUID: 1016329020a4efa48826c9aae91c7eb1
-    m_Address: Tycoon.UI.UpgradeModule
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
@@ -214,6 +184,46 @@ MonoBehaviour:
     - Windows
   - m_GUID: 0de5fa814bb6fb64bb166362f5dea356
     m_Address: Tycoon.Icon.LargeBasket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 1016329020a4efa48826c9aae91c7eb1
+    m_Address: Tycoon.UI.UpgradeModule
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 9f702aa74964cd049bf2f927f5d06dc9
+    m_Address: Tycoon.UI.ShopItem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 804bb0480849bad479f9a64d84841cb5
+    m_Address: Tycoon.UI.FloatyText
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: cec788a9bec1ff4458af97448dcb5c34
+    m_Address: Tycoon.UI.Category
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 9765238e379467b45b2bb18765c701f3
+    m_Address: Tycoon.Shop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: 1196e417d2e7ec84298bfa9a1c8f2cf5
+    m_Address: Tycoon.Plot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: e2b91f9cedbf77c41a6723dc90000711
+    m_Address: Tycoon.Audio.StoreSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+  - m_GUID: c3f447f1f15b97d44ba93f0fbf37c73b
+    m_Address: Tycoon.Audio.PickaxeSounds
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
