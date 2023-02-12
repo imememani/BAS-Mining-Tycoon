@@ -12,7 +12,7 @@ namespace MiningTycoon.Scripts.Core
     public class Plot : Machine
     {
         public double plotCost = 5000.0d; // 5K Doubloons.
-        public PlotData data;
+        public PlotData data = new PlotData();
 
         // Blocker UI to purchase the plot.
         private GameObject plotMesh;
@@ -79,7 +79,7 @@ namespace MiningTycoon.Scripts.Core
             { return; }
 
             // Plot been purchased yet?
-            if (data == null)
+            if (data.machineID == -1)
             {
                 // Refresh the UI.
                 RefreshPlotUI();
@@ -113,7 +113,7 @@ namespace MiningTycoon.Scripts.Core
 
         private void Tick()
         {
-            if (data != null)
+            if (data.machineID != -1)
             { TycoonSaveHandler.Current.AddCurrency(data.doubloonsPerTick * data.doubloonMultiplier, true); }
         }
 
@@ -183,7 +183,7 @@ namespace MiningTycoon.Scripts.Core
         public void RefreshPlotUI()
         {
             // This plot has not been purchased.
-            if (data == null)
+            if (data.machineID == -1)
             {
                 // Refresh the plot cost.
                 plotPurchaseCost.text = $"<color={(TycoonShop.CanPurchase(plotCost) ? "white" : "red")}>{plotCost.FormatDoubloons()}</color>";
@@ -249,7 +249,7 @@ namespace MiningTycoon.Scripts.Core
 
             // Purchase and open the plot.
             TycoonShop.Purchase("Plot", plotCost);
-            data = new PlotData() { machineID = MachineID };
+            data.machineID = MachineID;
             TycoonSaveHandler.Current.plots.Add(data);
 
             // Reload the plot.

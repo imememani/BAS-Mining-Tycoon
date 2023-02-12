@@ -52,7 +52,7 @@ namespace MiningTycoon
 
             // Attach a console to this mod.
             // DELETE THIS LINE WHEN YOU HAVE FINISHED DEBUGGING.
-            Logging.CreateConsole();
+            //Logging.CreateConsole();
 
             // Create any directories required.
             if (!Directory.Exists(Path.Combine(Entry.Location, "Saves")))
@@ -89,6 +89,29 @@ namespace MiningTycoon
                 else
                 {
                     Logging.LogError("NO TYCOON SHOP FOUND!");
+                }
+            }
+            catch (Exception e)
+            { e.LogError(); }
+
+            Logging.Log("Loading sell zones...");
+            try
+            {
+                if (Entry.GetReference("SellZone") is Level.CustomReference shop)
+                {
+                    foreach (Transform target in shop.transforms)
+                    {
+                        // Spawn the zone.
+                        Catalog.InstantiateAsync("Tycoon.SellZone", target.position, target.rotation, target.parent, go =>
+                        {
+                            UnityEngine.Object.Destroy(target.gameObject);
+                            go.AddComponent<SellZone>();
+                        }, "Tycoon->SellZones");
+                    }
+                }
+                else
+                {
+                    Logging.LogError("NO SELL ZONES FOUND!");
                 }
             }
             catch (Exception e)

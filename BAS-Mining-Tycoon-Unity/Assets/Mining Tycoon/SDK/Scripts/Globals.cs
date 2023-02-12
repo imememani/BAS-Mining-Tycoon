@@ -12,5 +12,6 @@ public enum Tier
 public enum CoreType
 {
     Plots,
-    Shop
+    Shop,
+    SellZone
 }

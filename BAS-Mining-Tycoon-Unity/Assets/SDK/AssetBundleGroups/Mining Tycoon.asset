@@ -18,6 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4f81e763d77bac49a4363d02cc1e4be, type: 2}
   - {fileID: 11400000, guid: 8a39f37f8769dc84189eae7e5b951ef0, type: 2}
   - {fileID: 11400000, guid: d808c7cba601ecc42a35d8e52d1ad034, type: 2}
-  - {fileID: 11400000, guid: 669381ed32f518349beda490b863baf1, type: 2}
   selected: 1
   exportAfterBuild: 1

@@ -132,6 +132,8 @@ namespace MiningTycoon
                     {
                         Object.Destroy(plotObject.gameObject);
                         Plot plot = go.AddComponent<Plot>();
+                        plot.plotCost *= index + 1;
+                        plot.data.doubloonsPerTick += 5 * (index + 1);
                         plot.MachineID = index;
 
                         // Try load the plot data.

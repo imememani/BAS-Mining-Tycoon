@@ -29,10 +29,7 @@ namespace MiningTycoon
             { Destroy(worldObject); }
 
             // Collect the ore.
-            if (worldObject.thunderItem != null)
-            { worldObject.thunderItem.Despawn(); }
-            else
-            { Destroy(worldObject.gameObject); }
+            worldObject.Despawn();
 
             // Play effect.
             if (!doubloonEffect.isPlaying)

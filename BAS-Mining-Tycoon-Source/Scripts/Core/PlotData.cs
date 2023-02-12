@@ -7,7 +7,7 @@
     public class PlotData
     {
         // Which plot does this data belong to?
-        public int machineID;
+        public int machineID = -1;
 
         // How many doubloons this earns per tick.
         public double doubloonsPerTick = 5.0f;

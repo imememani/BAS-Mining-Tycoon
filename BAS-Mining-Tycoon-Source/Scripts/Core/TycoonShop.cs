@@ -43,6 +43,8 @@ namespace MiningTycoon
         private string currentCategory;
         private Text currentCategoryText;
 
+        private bool initialized;
+
         private readonly Dictionary<string, List<Item>> categories = new Dictionary<string, List<Item>>();
 
         private void Awake()
@@ -95,6 +97,19 @@ namespace MiningTycoon
 
         private void Start()
         {
+            if (TycoonSaveHandler.Current != null)
+            {
+                if (!initialized)
+                {
+                    TycoonSaveHandler.PlayerLoaded -= HandlePlayerLoad;
+                    HandlePlayerLoad(TycoonSaveHandler.Current);
+                }
+
+                // Update display.
+                currencyDisplay.text = $"{TycoonSaveHandler.Current.doubloons.FormatDoubloons()}";
+                oreCollectionDisplay.text = TycoonSaveHandler.Current.oresCollected.ToString();
+            }
+
             FillCategories();
             Refresh();
         }
@@ -351,6 +366,8 @@ namespace MiningTycoon
         /// </summary>
         private void HandlePlayerLoad(TycoonPlayer player)
         {
+            initialized = true;
+
             // Update display.
             currencyDisplay.text = $"{TycoonSaveHandler.Current.doubloons.FormatDoubloons()}";
             oreCollectionDisplay.text = TycoonSaveHandler.Current.oresCollected.ToString();

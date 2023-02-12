@@ -29,6 +29,22 @@ namespace MiningTycoon
 
         private void OnDisable() => Tycoon.WorldObjects.Remove(this);
 
+        public void Despawn()
+        {
+            if (thunderItem != null)
+            {
+                thunderItem.Despawn();
+                Tycoon.WorldObjects.Remove(this);
+            }
+            else if (creatureData != null)
+            {
+                GetComponent<Creature>().Despawn();
+                Tycoon.WorldObjects.Remove(this);
+            }
+            else
+            { Destroy(gameObject); }
+        }
+
         public void Load(string id)
         {
             // Create a reference copy.
